@@ -66,7 +66,7 @@ main{width:min(1100px,calc(100% - 20px));margin:18px auto 40px}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 
 /* игры */
-.picker{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:18px}
+.picker{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:18px}
 .gbtn{padding:16px 10px;border-radius:20px;text-align:center;font-weight:800;background:rgba(255,255,255,.06);border:1px solid var(--line);transition:.2s}
 .gbtn span{display:block;font-size:30px;margin-bottom:2px}
 .gbtn.on{background:linear-gradient(135deg,rgba(139,92,246,.4),rgba(34,211,238,.25));border-color:var(--cyan);box-shadow:0 0 28px rgba(34,211,238,.35)}
@@ -141,6 +141,42 @@ ul.rules{padding-left:18px;color:var(--mute);font-size:14px}
 .bar{height:12px;border-radius:99px;background:rgba(0,0,0,.35);overflow:hidden;margin-top:6px}
 .bar i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--violet),var(--cyan));box-shadow:0 0 14px rgba(34,211,238,.6)}
 .back{margin-bottom:14px}
+.lv{font-weight:800;font-size:13px;color:var(--cyan);white-space:nowrap}
+.sub{display:none}.sub.on{display:block}
+.r0{--rc:#9ca3af}.r1{--rc:#34d399}.r2{--rc:#60a5fa}.r3{--rc:#c084fc}.r4{--rc:#fbbf24}.rt{--rc:#f472b6}
+.cases{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.case{padding:16px 8px;border-radius:20px;text-align:center;background:rgba(255,255,255,.06);border:1px solid var(--line);transition:.2s}
+.case.on{background:linear-gradient(135deg,rgba(139,92,246,.4),rgba(34,211,238,.25));border-color:var(--cyan);box-shadow:0 0 26px rgba(34,211,238,.35)}
+.case .ce{display:block;font-size:38px}.case small{display:block;color:var(--mute)}
+.items{display:grid;grid-template-columns:repeat(auto-fill,minmax(92px,1fr));gap:10px}
+.items.slots{grid-template-columns:repeat(5,1fr)}
+.it{position:relative;padding:10px 4px;border-radius:16px;text-align:center;background:rgba(0,0,0,.28);border:2px solid var(--rc,#9ca3af);cursor:pointer;transition:box-shadow .15s}
+.it.sel,.it:hover{box-shadow:0 0 18px var(--rc,#9ca3af)}
+.it .ie{font-size:28px;line-height:1.2}.it b{display:block;font-size:11.5px;line-height:1.25;min-height:28px}.it small{font-size:11px}
+.it .cn{position:absolute;top:3px;right:6px;font-weight:800;font-size:12px}
+.it.slot{border-style:dashed;border-color:var(--line);color:var(--mute);cursor:default;min-height:92px;display:grid;place-items:center}
+.reelwrap{position:relative;overflow:hidden;border-radius:18px;background:rgba(0,0,0,.35);border:1px solid var(--line);padding:10px 0;margin:14px 0}
+.strip{display:flex;gap:6px;will-change:transform}.strip .it{flex:0 0 90px;cursor:default}
+.pointer{position:absolute;left:50%;top:0;bottom:0;width:3px;background:var(--cyan);box-shadow:0 0 14px var(--cyan);z-index:2;transform:translateX(-50%)}
+.invact{margin-top:14px;padding:14px;border-radius:18px;background:rgba(0,0,0,.25)}
+.invact .row{flex-wrap:wrap}.invact input{flex:1;min-width:120px}
+.lb .btn,.lb .chip{flex:none;padding:8px 14px;min-height:40px}
+.wheelbox{position:relative;width:min(300px,78vw);margin:10px auto 0}
+.pin{position:absolute;left:50%;top:-14px;transform:translateX(-50%);z-index:3;font-size:26px;color:var(--cyan);text-shadow:0 0 14px var(--cyan)}
+.wheel{width:100%;aspect-ratio:1;border-radius:50%;position:relative;border:4px solid rgba(255,255,255,.35);box-shadow:0 0 40px rgba(139,92,246,.5);transition:transform 4.5s cubic-bezier(.12,.7,.1,1)}
+.wl{position:absolute;inset:0}.wl span{position:absolute;top:9%;left:50%;transform:translateX(-50%);font:700 15px Unbounded,sans-serif;text-shadow:0 1px 6px rgba(0,0,0,.6)}
+.qs li{align-items:center}.qi{flex:1;min-width:0}.qi .bar{margin:6px 0 4px}
+.achs{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px}
+.ach{padding:12px 8px;border-radius:16px;text-align:center;background:rgba(0,0,0,.25);opacity:.45;border:1px solid var(--line)}
+.ach.on{opacity:1;border-color:var(--mint);box-shadow:0 0 16px rgba(52,211,153,.3)}
+.ach .ie{display:block;font-size:28px}.ach b{display:block;font-size:12.5px}.ach small{color:var(--mute)}
+.coin{width:120px;height:120px;margin:0 auto 16px;border-radius:50%;display:grid;place-items:center;font:700 46px Unbounded,sans-serif;color:#3b2500;background:radial-gradient(circle at 30% 25%,#fde68a,#f59e0b 70%);box-shadow:0 0 36px rgba(251,191,36,.55);border:3px solid rgba(255,255,255,.5)}
+.coin.flip{animation:flip .5s linear infinite}@keyframes flip{to{transform:rotateY(360deg)}}
+code{font-size:12px;color:var(--cyan)}
+.sect{margin-top:22px;padding-top:18px;border-top:1px solid var(--line)}
+.lvl{margin:0 0 16px}.lvl .bar{margin:6px 0 4px}
+.ttl{display:inline-block;margin-left:8px;padding:2px 10px;border-radius:99px;font:700 12px Manrope,sans-serif;background:rgba(251,191,36,.18);border:1px solid rgba(251,191,36,.6);color:#fcd34d;vertical-align:middle}
+.feat{padding-left:18px;color:var(--mute);font-size:14px;margin-top:8px}
 #toasts{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:99;display:grid;gap:8px;width:min(420px,calc(100% - 24px))}
 .toast{padding:12px 16px;border-radius:16px;font-weight:600;text-align:center;-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);background:rgba(20,18,40,.8);border:1px solid var(--line);animation:tin .25s}
 .toast.err{border-color:rgba(251,75,106,.6);color:#ffb3c0}
@@ -161,8 +197,14 @@ ul.rules{padding-left:18px;color:var(--mute);font-size:14px}
   .nav button i{font-size:19px;margin:0}
   main{width:calc(100% - 16px);margin-top:12px;padding-bottom:calc(92px + env(safe-area-inset-bottom))}
   .pad{padding:16px}
-  .picker{gap:8px}
-  .gbtn{padding:12px 4px;border-radius:16px;font-size:14px}.gbtn span{font-size:26px}
+  .picker{display:flex;overflow-x:auto;gap:8px;scroll-snap-type:x proximity;scrollbar-width:none;padding:2px}
+  .picker::-webkit-scrollbar{display:none}
+  .gbtn{flex:0 0 92px;scroll-snap-align:start;padding:12px 4px;border-radius:16px;font-size:14px}.gbtn span{font-size:26px}
+  .nav button{font-size:10.5px}.nav button i{font-size:18px}
+  .cases{gap:8px}.case{padding:12px 4px}.case b{font-size:13px}.case .ce{font-size:32px}
+  .items{grid-template-columns:repeat(auto-fill,minmax(84px,1fr))}
+  .strip .it{flex-basis:90px}
+  .lb li{flex-wrap:wrap}
   .stage{min-height:0}
   .play{gap:16px}
   #play{position:sticky;bottom:calc(84px + env(safe-area-inset-bottom));z-index:5;box-shadow:0 0 26px rgba(139,92,246,.6),0 8px 24px rgba(0,0,0,.55)}
@@ -205,13 +247,15 @@ ul.rules{padding-left:18px;color:var(--mute);font-size:14px}
     <h2 class="brand disp" style="margin:0">LUMEN</h2>
     <nav class="nav" id="nav">
       <button class="on" data-v="games"><i>🎰</i><span>Игры</span></button>
+      <button data-v="cases"><i>📦</i><span>Кейсы</span></button>
+      <button data-v="bonus"><i>🎁</i><span>Бонусы</span></button>
       <button data-v="bank"><i>🏦</i><span>Банк</span></button>
-      <button data-v="top"><i>🏆</i><span>Топы</span></button>
-      <button data-v="players"><i>👥</i><span>Игроки</span></button>
-      <button data-v="profile"><i>👤</i><span>Профиль</span></button>
+      <button data-v="top"><i>🏆</i><span>Люди</span></button>
+      <button data-v="profile"><i>👤</i><span>Кабинет</span></button>
     </nav>
     <div class="me">
       <span class="uname" id="uname"></span>
+      <span class="lv" id="lv"></span>
       <span class="bal" id="bal">$0.00</span>
       <button class="chip" id="logout" title="Выйти">Выйти</button>
     </div>
@@ -224,8 +268,10 @@ ul.rules{padding-left:18px;color:var(--mute);font-size:14px}
         <button class="gbtn on" data-g="slots"><span>🎰</span>Слоты</button>
         <button class="gbtn" data-g="roulette"><span>🎡</span>Рулетка</button>
         <button class="gbtn" data-g="dice"><span>🎲</span>Кости</button>
+        <button class="gbtn" data-g="coin"><span>🪙</span>Монетка</button>
+        <button class="gbtn" data-g="duels"><span>⚔️</span>Дуэли</button>
       </div>
-      <div class="glass pad play">
+      <div class="glass pad play" id="playPanel">
         <div>
           <div class="stage on" data-s="slots"><div class="stage-in">
             <div class="reels"><div class="reel">🍒</div><div class="reel">🍋</div><div class="reel">🔔</div></div>
@@ -253,6 +299,11 @@ ul.rules{padding-left:18px;color:var(--mute);font-size:14px}
             <input id="dt" type="range" min="5" max="96" step="1" value="50" aria-label="Цель">
             <div class="dinfo"><span>Цель: <b id="dtv">50</b></span><span>Шанс: <b id="dch">49%</b></span><span>Выплата: <b id="dml">×1.98</b></span></div>
           </div></div>
+          <div class="stage" data-s="coin"><div class="stage-in">
+            <div class="coin" id="coin">О</div>
+            <div class="rch" id="cch"><button class="chip on" data-t="heads">Орёл ×2</button><button class="chip" data-t="tails">Решка ×2</button></div>
+            <p class="hint">Provably Fair: результат = SHA-256(сид сервера : ваш сид : номер). Хэш сида до броска: <code id="fairHash">…</code></p>
+          </div></div>
         </div>
         <div>
           <label for="bet">Ставка</label>
@@ -262,7 +313,24 @@ ul.rules{padding-left:18px;color:var(--mute);font-size:14px}
           </div>
           <button class="btn big" id="play">Играть</button>
           <div class="result" id="result"></div>
+          <p class="hint" id="feeNote"></p>
         </div>
+      </div>
+      <div class="glass pad" id="duelsPanel" hidden>
+        <div class="grid2">
+          <div>
+            <h2>Создать комнату</h2>
+            <div class="rch" id="dSide" style="justify-content:flex-start;margin:10px 0"><button class="chip on" data-t="heads">Орёл</button><button class="chip" data-t="tails">Решка</button></div>
+            <label for="dBet">Ставка</label>
+            <input id="dBet" type="number" min="0.5" step="0.5" value="1" inputmode="decimal">
+            <label id="dVipWrap" style="margin-top:10px;display:flex;gap:8px;align-items:center" hidden><input id="dVip" type="checkbox" style="width:auto"> Приватная VIP-комната</label>
+            <button class="btn big" id="dCreate" style="margin-top:14px">Создать комнату</button>
+            <p class="hint">Ставка замораживается до появления соперника (10 минут, затем возврат). Победитель забирает банк за вычетом комиссии. Результат = SHA-256(сид комнаты : сид соперника : id), хэш сида виден заранее. Кнопка «Проверить» сверяет сид и результат.</p>
+          </div>
+          <div><h2>Открытые комнаты</h2><ul class="lb" id="dList"></ul></div>
+        </div>
+        <h2 style="margin-top:18px">Последние дуэли</h2>
+        <ul class="lb" id="dRecent"></ul>
       </div>
     </section>
 
@@ -286,13 +354,78 @@ ul.rules{padding-left:18px;color:var(--mute);font-size:14px}
             <p class="muted" id="bonusTxt"></p>
             <div class="row"><button class="btn" id="bonusBtn">Забрать бонус</button></div>
           </div>
+          <div class="glass pad">
+            <h2>Перевод другу</h2>
+            <label for="xto">Ник получателя</label>
+            <input id="xto" type="text" autocomplete="off" maxlength="16">
+            <label for="xamt" style="margin-top:10px">Сумма</label>
+            <input id="xamt" type="number" min="0.5" step="0.5" inputmode="decimal">
+            <div class="row"><button class="btn" id="xBtn" style="width:100%">Отправить</button></div>
+            <p class="hint" id="xInfo"></p>
+            <ul class="lb" id="xList" style="margin-top:12px"></ul>
+          </div>
         </div>
+      </div>
+    </section>
+
+    <!-- Кейсы -->
+    <section class="view" id="v-cases">
+      <div class="ttabs" id="csub">
+        <button class="chip on" data-p="open">📦 Кейсы</button>
+        <button class="chip" data-p="inv">🎒 Инвентарь</button>
+        <button class="chip" data-p="market">🛒 Рынок</button>
+        <button class="chip" data-p="craft">⚒️ Крафт</button>
+      </div>
+      <div class="glass pad sub on" id="cs-open">
+        <div class="cases" id="caseList"></div>
+        <div id="caseStage" hidden>
+          <h2 id="csTitle" style="margin-top:18px"></h2>
+          <div class="reelwrap"><div class="pointer"></div><div class="strip" id="strip"></div></div>
+          <div class="row" style="justify-content:center;flex-wrap:wrap"><button class="btn" id="caseBuy">Открыть</button><button class="btn ghost" id="caseTicket" hidden>По билету</button></div>
+          <div class="result" id="caseRes"></div>
+          <details style="margin-top:14px"><summary class="muted">Шансы выпадения</summary><ul class="rules" id="caseRates"></ul></details>
+        </div>
+      </div>
+      <div class="glass pad sub" id="cs-inv"><div class="items" id="invList"></div><div id="invAct"></div></div>
+      <div class="glass pad sub" id="cs-market">
+        <p class="hint" style="margin:0 0 10px" id="mkNote"></p>
+        <ul class="lb" id="mList"></ul>
+      </div>
+      <div class="glass pad sub" id="cs-craft">
+        <p class="muted" id="crInfo"></p>
+        <div class="items slots" id="crSel" style="margin-top:10px"></div>
+        <div class="row" style="margin:12px 0"><button class="btn" id="crBtn" style="width:100%" disabled>Объединить</button></div>
+        <div class="items" id="crInv"></div>
+      </div>
+    </section>
+
+    <!-- Бонусы -->
+    <section class="view" id="v-bonus">
+      <div class="ttabs" id="bsub">
+        <button class="chip on" data-p="wheel">🎡 Колесо</button>
+        <button class="chip" data-p="quests">📜 Квесты</button>
+        <button class="chip" data-p="ach">🏆 Достижения</button>
+        <button class="chip" data-p="promo">🔑 Промокод</button>
+      </div>
+      <div class="glass pad sub on" id="bs-wheel" style="text-align:center">
+        <div class="wheelbox"><div class="pin">▼</div><div class="wheel" id="wheel"></div></div>
+        <button class="btn big" id="spinBtn" style="max-width:340px;margin-top:18px">Крутить колесо</button>
+        <p class="muted" id="spinTxt" style="margin-top:10px"></p>
+      </div>
+      <div class="glass pad sub" id="bs-quests"><ul class="lb qs" id="qList"></ul></div>
+      <div class="glass pad sub" id="bs-ach"><div class="achs" id="achList"></div></div>
+      <div class="glass pad sub" id="bs-promo">
+        <h2>Секретный промокод</h2>
+        <p class="muted">Введите код, чтобы мгновенно получить награду. Каждый код можно активировать один раз на аккаунт.</p>
+        <div class="row"><input id="promoCode" type="text" placeholder="Например, WELCOME" autocomplete="off" autocapitalize="characters"><button class="btn" id="promoBtn">Активировать</button></div>
       </div>
     </section>
 
     <!-- Топы -->
     <section class="view" id="v-top">
       <div class="glass pad">
+        <div class="seg ttabs" data-a="top"></div>
+        <p class="muted" id="poolInfo" style="margin-bottom:10px"></p>
         <div class="ttabs" id="ttabs"></div>
         <ul class="lb" id="lb"></ul>
       </div>
@@ -301,6 +434,7 @@ ul.rules{padding-left:18px;color:var(--mute);font-size:14px}
     <!-- Игроки -->
     <section class="view" id="v-players">
       <div class="glass pad">
+        <div class="seg ttabs" data-a="players"></div>
         <div class="pcount" id="pcount">Загрузка…</div>
         <input id="psearch" type="text" placeholder="Поиск по нику" autocomplete="off">
         <div class="ttabs" id="psort" style="margin-top:12px">
@@ -322,18 +456,10 @@ ul.rules{padding-left:18px;color:var(--mute);font-size:14px}
 
 <script>
 /* ===== Настройка: вставьте URL веб-приложения Google Apps Script (оканчивается на /exec) ===== */
-const API_URL = 'https://script.google.com/macros/s/AKfycbwUWPV3pwiX34tpdEL5TY8cHGF7mTkivGPb-324teYfzXxGKHssbQfgfWA0ld-7qwOo/exec';
+const API_URL = 'PASTE_YOUR_WEB_APP_URL_HERE';
 
 const SYM = ['🍒','🍋','🔔','💎','7️⃣'];
 const REDS = [1,3,5,7,9,12,14,16,18,19,21,23,25,27,30,32,34,36];
-const TOPS = [
-  {k:'balance',t:'Богатейшие',f:n=>money(n)},
-  {k:'biggestWin',t:'Крупнейший выигрыш',f:n=>money(n)},
-  {k:'totalWon',t:'Всего выиграно',f:n=>money(n)},
-  {k:'playSeconds',t:'Время в игре',f:n=>fmtTime(n)},
-  {k:'games',t:'Сыграно партий',f:n=>String(n)},
-  {k:'debt',t:'Должники',f:n=>money(n)}
-];
 const $ = s => document.querySelector(s);
 const $$ = s => [...document.querySelectorAll(s)];
 const sleep = ms => new Promise(r => setTimeout(r, ms));
@@ -345,7 +471,7 @@ const colorOf = n => n===0?'green':REDS.includes(n)?'red':'black';
 let session = null;
 try { session = JSON.parse(localStorage.getItem('lumen_session')); } catch(e) {}
 let S = null, CONF = {loanOptions:[10,25,50,100],loanRate:.3,autoRepay:.3,minBet:.1,maxBet:1000,dailyBonus:5};
-let authMode='login', game='slots', rChoice='red', dMode='under', topKey='balance', busy=false, bonusAt=0, hb=null, lbTimer=null, view='games';
+let authMode='login', game='slots', rChoice='red', dMode='under', topKey='balance', busy=false, bonusAt=0, hb=null, lbTimer=null, view='games', cSide='heads', spinAt=0, spinning=false, duelTimer=null;
 
 /* ---------- API ---------- */
 async function api(action, data={}) {
@@ -361,6 +487,7 @@ async function api(action, data={}) {
     if (/Сессия истекла/.test(j.error||'')) logout(true);
     throw new Error(j.error || 'Ошибка сервера');
   }
+  if (j.newAch) j.newAch.forEach(a => toast('🏆 ' + a.n + ' · +' + money(a.r)));
   return j;
 }
 
@@ -383,7 +510,7 @@ async function submitAuth() {
   const user = $('#u').value.trim(), pass = $('#p').value;
   $('#authErr').textContent = ''; $('#authBtn').disabled = true;
   try {
-    const j = await api(authMode, {user, pass});
+    const j = await api(authMode, authMode==='register' ? {user, pass, ref: REF} : {user, pass});
     session = {user: j.state.username, token: j.token};
     localStorage.setItem('lumen_session', JSON.stringify(session));
     CONF = j.config; enter(j.state);
@@ -405,46 +532,15 @@ function enter(state) {
   buildTops(); updateDice(); openView(view);
 }
 function logout(silent) {
-  session = null; localStorage.removeItem('lumen_session'); clearInterval(hb); clearInterval(lbTimer);
+  session = null; localStorage.removeItem('lumen_session'); clearInterval(hb); clearInterval(lbTimer); clearInterval(duelTimer);
   $('#app').hidden = true; $('#auth').hidden = false; $('#p').value = '';
   if (silent === true) $('#authErr').textContent = 'Сессия истекла, войдите заново';
 }
 $('#logout').onclick = () => logout();
 
 /* ---------- Состояние ---------- */
-function applyState(s) {
-  const prev = S ? S.balance : s.balance;
-  S = s;
-  $('#bal').textContent = money(s.balance);
-  $('#uname').textContent = s.username;
-  if (s.balance !== prev) { const b = $('#bal'); b.classList.add('pop'); setTimeout(() => b.classList.remove('pop'), 300); }
-  bonusAt = Date.now() + s.bonusIn;
-  renderBank();
-}
-
 /* ---------- Навигация ---------- */
-$('#nav').onclick = e => {
-  const b = e.target.closest('button'); if (!b) return;
-  if (b.dataset.v === 'profile') openProfile(session.user); else openView(b.dataset.v);
-};
-function openView(v, navKey) {
-  view = v;
-  $$('#nav button').forEach(b => b.classList.toggle('on', b.dataset.v === (navKey || v)));
-  $$('.view').forEach(x => x.classList.toggle('on', x.id === 'v-' + v));
-  clearInterval(lbTimer);
-  if (v === 'top') { loadTops(); lbTimer = setInterval(loadTops, 30000); }
-  if (v === 'players') { loadPlayers(); lbTimer = setInterval(loadPlayers, 30000); }
-  window.scrollTo({top: 0});
-}
-
 /* ---------- Игры ---------- */
-$('#picker').onclick = e => {
-  const b = e.target.closest('.gbtn'); if (!b || busy) return;
-  game = b.dataset.g;
-  $$('.gbtn').forEach(x => x.classList.toggle('on', x === b));
-  $$('.stage').forEach(x => x.classList.toggle('on', x.dataset.s === game));
-  $('#result').className = 'result';
-};
 function getBet(){ return Math.round(parseFloat($('#bet').value) * 100) / 100; }
 function setBet(v){ $('#bet').value = Math.max(0, Math.min(CONF.maxBet, Math.floor(v*100)/100)); }
 $('#bet').parentElement.onclick = e => {
@@ -477,6 +573,11 @@ function updateDice() {
 }
 
 const ANIM = {
+  async coin(p) {
+    const el = $('#coin'), t0 = Date.now(); el.classList.add('flip');
+    try { const j = await p; await sleep(Math.max(0, 1200 - (Date.now() - t0))); el.textContent = j.result.side==='heads' ? 'О' : 'Р'; return j; }
+    finally { el.classList.remove('flip'); }
+  },
   async slots(p) {
     const reels = $$('.reel'), t0 = Date.now();
     reels.forEach(r => r.classList.add('spin'));
@@ -512,27 +613,18 @@ $('#play').onclick = async () => {
   if (!(bet >= CONF.minBet)) return toast('Минимальная ставка ' + money(CONF.minBet), 'err');
   if (bet > S.balance) return toast('Недостаточно средств. Возьмите кредит или заберите бонус в разделе «Банк»', 'err');
   const params = game==='roulette' ? {type:rChoice, number:+$('#rnum').value}
-               : game==='dice' ? {mode:dMode, target:+$('#dt').value} : {};
+               : game==='dice' ? {mode:dMode, target:+$('#dt').value}
+               : game==='coin' ? {side:cSide, clientSeed:rndHex()} : {};
   busy = true; $('#play').disabled = true; $('#result').className = 'result';
   const p = api('play', {game, bet, params}); p.catch(() => {});
   try {
+    const prevFair = S.fairHash;
     const j = await ANIM[game](p);
+    j.prevFair = prevFair;
     applyState(j.state); showResult(j);
   } catch(e) { toast(e.message, 'err'); }
   busy = false; $('#play').disabled = false;
 };
-
-function showResult(j) {
-  const r = j.result, el = $('#result'), win = j.profit > 0;
-  let detail = '';
-  if (game==='slots') detail = r.reels.map(i => SYM[i]).join(' ');
-  else if (game==='roulette') detail = `Выпало ${r.number} (${{red:'красное',black:'чёрное',green:'зеро'}[r.color]})`;
-  else detail = `Выпало ${r.roll}, нужно ${dMode==='under'?'меньше':'больше'} ${$('#dt').value}`;
-  let extra = j.repaid > 0 ? `<small>На кредит автоматически ушло ${money(j.repaid)}</small>` : '';
-  el.className = 'result ' + (win ? 'win' : 'lose');
-  if (navigator.vibrate) navigator.vibrate(win ? [40,50,40] : 20);
-  el.innerHTML = (win ? `Выигрыш +${money(j.profit)}` : `Проигрыш −${money(j.bet)}`) + `<small>${esc(detail)}</small>` + extra;
-}
 
 /* ---------- Банк ---------- */
 function renderBank() {
@@ -570,7 +662,7 @@ function tickBonus() {
     $('#bonusTxt').textContent = `Следующий бонус через ${h} ч ${m} мин ${s} с.`;
   } else $('#bonusTxt').textContent = `Раз в сутки можно забрать ${money(CONF.dailyBonus)}. Пригодится, если баланс на нуле.`;
 }
-setInterval(() => { if (view==='bank' && S) tickBonus(); }, 1000);
+setInterval(() => { if (!S) return; if (view==='bank') tickBonus(); if (view==='bonus') tickSpin(); }, 1000);
 
 /* ---------- Топы ---------- */
 function buildTops() {
@@ -580,21 +672,6 @@ $('#ttabs').onclick = e => {
   const b = e.target.closest('.chip'); if (!b) return;
   topKey = b.dataset.k; buildTops(); renderTops();
 };
-let boards = null;
-async function loadTops() {
-  try {
-    const res = await fetch(API_URL + '?action=leaderboard'); const j = await res.json();
-    if (j.ok) { boards = j.boards; renderTops(); }
-  } catch(e) { if (!boards) $('#lb').innerHTML = '<li class="empty">Не удалось загрузить рейтинг</li>'; }
-}
-function renderTops() {
-  const cfg = TOPS.find(t => t.k === topKey), list = boards && boards[topKey];
-  if (!list) return;
-  $('#lb').innerHTML = list.length ? list.map((r,i) =>
-    `<li data-n="${esc(r.name)}" class="tap ${session && r.name.toLowerCase()===session.user.toLowerCase()?'you':''}"><span class="rk">${i+1}</span><span class="nm"><b>${esc(r.name)}</b></span><span class="vl">${esc(cfg.f(r.value))}</span></li>`).join('')
-    : '<li class="empty">Здесь пока никого. Станьте первым.</li>';
-}
-
 /* ---------- Профиль и игроки ---------- */
 const fmtDate = ts => ts ? new Date(ts).toLocaleDateString('ru-RU', {day:'numeric', month:'short', year:'numeric'}) : '—';
 function fmtAgo(ts) {
@@ -618,24 +695,6 @@ async function openProfile(name) {
     renderProfile(j.profile, own);
   } catch(e) { $('#profBox').innerHTML = '<div class="empty">' + esc(e.message || 'Не удалось загрузить профиль') + '</div>'; }
 }
-function renderProfile(p, own) {
-  const wr = p.games ? Math.round(p.wins / p.games * 100) : 0;
-  const rk = (ok, r, t) => `<span class="rank">${ok ? '#' + r : '—'} ${t}</span>`;
-  const st = [['Баланс', money(p.balance)], ['Долг', p.debt > 0 ? money(p.debt) : 'нет'], ['Партий', p.games], ['Побед', `${p.wins} (${wr}%)`],
-    ['Поставлено', money(p.totalWagered)], ['Выиграно', money(p.totalWon)], ['Лучший выигрыш', money(p.biggestWin)], ['Время в игре', fmtTime(p.playSeconds)]];
-  $('#profBox').innerHTML =
-    (own ? '' : '<button class="chip back" id="profBack">← К списку игроков</button>') +
-    `<div class="phead">${avatar(p.name, 'big')}<div><h2 class="disp pname">${esc(p.name)}${own ? ' <small>это вы</small>' : ''}</h2>
-      <p class="muted"><span class="dot ${p.online ? '' : 'off'}"></span>${p.online ? 'сейчас в игре' : 'был(а) ' + fmtAgo(p.lastSeen)} · с нами с ${fmtDate(p.createdAt)}</p></div></div>
-    <div class="ranks">${rk(true, p.ranks.balance, 'по балансу')}${rk(p.totalWon > 0, p.ranks.totalWon, 'по выигрышам')}${rk(p.playSeconds > 0, p.ranks.playSeconds, 'по времени')}${rk(p.games > 0, p.ranks.games, 'по партиям')}<span class="rank" style="background:rgba(255,255,255,.06);border-color:var(--line)">из ${p.totalPlayers}</span></div>
-    <div class="stats big">${st.map(([k, v]) => `<div class="stat"><span class="muted">${k}</span><b>${esc(v)}</b></div>`).join('')}</div>
-    <p class="muted" style="margin-top:16px">Процент побед: ${wr}%</p><div class="bar"><i style="width:${wr}%"></i></div>` +
-    (own ? '<button class="btn ghost" id="profOut" style="margin-top:20px">Выйти из аккаунта</button>' : '');
-  const back = $('#profBack'), out = $('#profOut');
-  if (back) back.onclick = () => openView('players');
-  if (out) out.onclick = () => logout();
-}
-
 let plData = null, pSort = 'seen';
 async function loadPlayers() {
   try {
@@ -651,7 +710,7 @@ function renderPlayers() {
   else if (pSort === 'bal') l = [...l].sort((a, b) => b.balance - a.balance);
   $('#pcount').innerHTML = `Всего игроков: <b>${plData.total}</b> · сейчас онлайн: <b>${plData.online}</b>`;
   $('#plist').innerHTML = l.length ? l.map(p =>
-    `<li data-n="${esc(p.name)}" class="tap ${session && p.name.toLowerCase() === session.user.toLowerCase() ? 'you' : ''}">${avatar(p.name)}<span class="nm"><b>${esc(p.name)}</b><small><span class="dot ${p.online ? '' : 'off'}" style="margin-right:4px"></span>${p.online ? 'онлайн' : fmtAgo(p.lastSeen)} · с ${fmtDate(p.createdAt)}</small></span><span class="vl">${money(p.balance)}</span></li>`).join('')
+    `<li data-n="${esc(p.name)}" class="tap ${session && p.name.toLowerCase() === session.user.toLowerCase() ? 'you' : ''}">${avatar(p.name)}<span class="nm"><b>${esc(p.name)} ${vipBadge(p.x)}</b><small><span class="dot ${p.online ? '' : 'off'}" style="margin-right:4px"></span>${p.online ? 'онлайн' : fmtAgo(p.lastSeen)} · Ур. ${p.x.l}</small></span><span class="vl">${money(p.balance)}</span></li>`).join('')
     : '<li class="empty">Никого не найдено</li>';
 }
 $('#psearch').oninput = renderPlayers;
@@ -664,6 +723,432 @@ $('#psort').onclick = e => {
 const openFromList = e => { const li = e.target.closest('li[data-n]'); if (li) openProfile(li.dataset.n); };
 $('#plist').onclick = openFromList;
 $('#lb').onclick = openFromList;
+
+/* ======================= Модули ======================= */
+const TOPS = [
+  {k:'balance',t:'Богатейшие',f:n=>money(n)},
+  {k:'level',t:'Уровни',f:(n,r)=>`Ур. ${r.x.l} · ${n} XP`},
+  {k:'biggestWin',t:'Крупнейший выигрыш',f:n=>money(n)},
+  {k:'totalWon',t:'Всего выиграно',f:n=>money(n)},
+  {k:'playSeconds',t:'Время в игре',f:n=>fmtTime(n)},
+  {k:'games',t:'Сыграно партий',f:n=>String(n)},
+  {k:'refs',t:'Рефералы',f:n=>String(n)},
+  {k:'debt',t:'Должники',f:n=>money(n)}
+];
+const vipBadge = x => x && x.v > 0 ? CONF.mods.vip[x.v].e : '';
+const RAR = r => r < 0 ? 'Билет' : CONF.mods.rarity[r];
+const rndHex = () => [...crypto.getRandomValues(new Uint8Array(8))].map(x => x.toString(16).padStart(2,'0')).join('');
+async function sha256hex(s) {
+  const b = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(s));
+  return [...new Uint8Array(b)].map(x => x.toString(16).padStart(2,'0')).join('');
+}
+const REF = (new URLSearchParams(location.search).get('ref') || (function(){ try { return localStorage.getItem('lumen_ref'); } catch(e) { return ''; } })() || '').toUpperCase();
+if (REF) { try { localStorage.setItem('lumen_ref', REF); } catch(e) {} }
+
+/* ---------- Навигация ---------- */
+$('#nav').onclick = e => {
+  const b = e.target.closest('button'); if (!b) return;
+  if (b.dataset.v === 'profile') openProfile(session.user); else openView(b.dataset.v);
+};
+function openView(v, navKey) {
+  view = v;
+  const nk = navKey || (v === 'players' ? 'top' : v);
+  $$('#nav button').forEach(b => b.classList.toggle('on', b.dataset.v === nk));
+  $$('.view').forEach(x => x.classList.toggle('on', x.id === 'v-' + v));
+  clearInterval(lbTimer);
+  if (v === 'top') { loadTops(); lbTimer = setInterval(loadTops, 30000); }
+  if (v === 'players') { loadPlayers(); lbTimer = setInterval(loadPlayers, 30000); }
+  if (v === 'bank') loadTransfers();
+  refreshUI(); syncDuels();
+  window.scrollTo({top: 0});
+}
+function buildSeg() {
+  $$('.seg').forEach(el => {
+    const a = el.dataset.a;
+    el.innerHTML = `<button class="chip ${a==='top'?'on':''}" data-v="top">🏆 Топы</button><button class="chip ${a==='players'?'on':''}" data-v="players">👥 Игроки</button>`;
+    el.onclick = e => { const b = e.target.closest('.chip'); if (b) openView(b.dataset.v); };
+  });
+}
+buildSeg();
+
+/* ---------- Состояние ---------- */
+function applyState(s) {
+  const prev = S ? S.balance : s.balance, pl = S ? S.level : s.level;
+  S = s;
+  $('#bal').textContent = money(s.balance);
+  $('#uname').textContent = s.username;
+  $('#lv').textContent = 'Ур. ' + s.level + (s.vip ? ' ' + CONF.mods.vip[s.vip].e : '');
+  $('#fairHash').textContent = s.fairHash.slice(0, 14) + '…';
+  $('#feeNote').textContent = 'Комиссия казино: ' + Math.round(CONF.houseEdge * 100) + '% с чистого выигрыша (идёт в системный пул).';
+  const X = CONF.mods.xfer;
+  $('#xInfo').textContent = `От ${money(X.MIN)} до ${money(X.MAX)} за раз, до ${money(X.DAILY)} в сутки. Доступно после ставок на ${money(X.MIN_WAGERED)}.`;
+  if (s.balance !== prev) { const b = $('#bal'); b.classList.add('pop'); setTimeout(() => b.classList.remove('pop'), 300); }
+  if (s.level > pl) toast('🎉 Новый уровень: ' + s.level);
+  bonusAt = Date.now() + s.bonusIn; spinAt = Date.now() + s.spinIn;
+  renderBank(); refreshUI();
+}
+function refreshUI() {
+  if (!S || !CONF.mods) return;
+  $('#dVipWrap').hidden = S.vip < CONF.mods.duel.vipMin;
+  if (view === 'cases') { renderCases(); renderInv(); renderCraft(); renderMarket(); }
+  if (view === 'bonus') renderBonus();
+}
+function bindSub(barId, prefix, cb) {
+  $(barId).onclick = e => {
+    const b = e.target.closest('.chip'); if (!b) return;
+    $$(barId + ' .chip').forEach(x => x.classList.toggle('on', x === b));
+    $$('[id^="' + prefix + '"]').forEach(x => x.classList.toggle('on', x.id === prefix + b.dataset.p));
+    if (cb) cb(b.dataset.p);
+  };
+}
+bindSub('#csub', 'cs-', p => { if (p === 'market') loadMarket(); refreshUI(); });
+bindSub('#bsub', 'bs-', () => refreshUI());
+
+/* ---------- Игры: выбор режима ---------- */
+$('#picker').onclick = e => {
+  const b = e.target.closest('.gbtn'); if (!b || busy) return;
+  game = b.dataset.g;
+  $$('.gbtn').forEach(x => x.classList.toggle('on', x === b));
+  $$('.stage').forEach(x => x.classList.toggle('on', x.dataset.s === game));
+  $('#playPanel').hidden = game === 'duels'; $('#duelsPanel').hidden = game !== 'duels';
+  $('#result').className = 'result';
+  syncDuels();
+};
+$('#cch').onclick = e => {
+  const c = e.target.closest('.chip'); if (!c) return;
+  cSide = c.dataset.t; $$('#cch .chip').forEach(x => x.classList.toggle('on', x === c));
+};
+
+function showResult(j) {
+  const r = j.result, el = $('#result'), win = j.profit > 0;
+  let detail = '';
+  if (game === 'slots') detail = r.reels.map(i => SYM[i]).join(' ');
+  else if (game === 'roulette') detail = `Выпало ${r.number} (${{red:'красное',black:'чёрное',green:'зеро'}[r.color]})`;
+  else if (game === 'coin') detail = 'Выпало: ' + (r.side === 'heads' ? 'орёл' : 'решка');
+  else detail = `Выпало ${r.roll}, нужно ${dMode==='under'?'меньше':'больше'} ${$('#dt').value}`;
+  let extra = '';
+  if (j.fee > 0) extra += `<small>Комиссия казино: ${money(j.fee)}</small>`;
+  if (j.repaid > 0) extra += `<small>На кредит автоматически ушло ${money(j.repaid)}</small>`;
+  if (j.cashback > 0) extra += `<small>VIP-кэшбэк: +${money(j.cashback)}</small>`;
+  if (game === 'coin') extra += '<small id="fv"></small>';
+  el.className = 'result ' + (j.profit >= 0 ? 'win' : 'lose');
+  el.innerHTML = (win ? `Выигрыш +${money(j.profit)}` : j.profit === 0 ? 'Ставка возвращена' : `Проигрыш −${money(-j.profit)}`) + `<small>${esc(detail)}</small>` + extra;
+  if (navigator.vibrate) navigator.vibrate(win ? [40,50,40] : 20);
+  if (game === 'coin') verifyCoin(j);
+}
+async function verifyCoin(j) {
+  const r = j.result, fv = $('#fv');
+  try {
+    const okHash = (await sha256hex(r.seed)) === j.prevFair;
+    const side = parseInt((await sha256hex(r.seed + ':' + r.clientSeed + ':' + r.nonce)).slice(0, 8), 16) % 2 === 0 ? 'heads' : 'tails';
+    if (fv) fv.textContent = okHash && side === r.side ? '✓ Честность подтверждена: хэш сида и результат совпали (SHA-256)' : '⚠ Проверка не сошлась';
+  } catch(e) { if (fv) fv.textContent = 'Сид раскрыт: ' + r.seed; }
+}
+
+/* ---------- Топы ---------- */
+let boards = null;
+async function loadTops() {
+  try {
+    const j = await (await fetch(API_URL + '?action=leaderboard')).json();
+    if (j.ok) { boards = j.boards; $('#poolInfo').textContent = 'Системный пул (комиссии казино): ' + money(j.pool || 0); renderTops(); }
+  } catch(e) { if (!boards) $('#lb').innerHTML = '<li class="empty">Не удалось загрузить рейтинг</li>'; }
+}
+function renderTops() {
+  const cfg = TOPS.find(t => t.k === topKey), list = boards && boards[topKey];
+  if (!list) return;
+  $('#lb').innerHTML = list.length ? list.map((r, i) =>
+    `<li data-n="${esc(r.name)}" class="tap ${session && r.name.toLowerCase()===session.user.toLowerCase()?'you':''}"><span class="rk">${i+1}</span><span class="nm"><b>${esc(r.name)} ${vipBadge(r.x)}</b></span><span class="vl">${esc(cfg.f(r.value, r))}</span></li>`).join('')
+    : '<li class="empty">Здесь пока никого. Станьте первым.</li>';
+}
+
+/* ---------- Профиль ---------- */
+function renderProfile(p, own) {
+  const M = CONF.mods, x = p.x || {l:1, v:0, t:''}, vp = M.vip[x.v];
+  const wr = p.games ? Math.round(p.wins / p.games * 100) : 0;
+  const rk = (ok, r, t) => `<span class="rank">${ok ? '#' + r : '—'} ${t}</span>`;
+  const st = [['Баланс', money(p.balance)], ['Долг', p.debt > 0 ? money(p.debt) : 'нет'], ['Партий', p.games], ['Побед', `${p.wins} (${wr}%)`],
+    ['Поставлено', money(p.totalWagered)], ['Выиграно', money(p.totalWon)], ['Лучший выигрыш', money(p.biggestWin)], ['Время в игре', fmtTime(p.playSeconds)]];
+  const ti = x.t && M.items[x.t] ? `<span class="ttl">${esc(M.items[x.t].n.replace('Титул ', ''))}</span>` : '';
+  let lvl;
+  if (own) {
+    const pct = Math.max(0, Math.min(100, Math.round((S.xp - S.xpBase) / (S.xpNext - S.xpBase) * 100))), nv = M.vip[S.vip + 1];
+    lvl = `<div class="lvl"><b>Уровень ${S.level}</b> ${S.vip ? vp.e + ' ' + esc(vp.n) + ' · кэшбэк ' + (vp.cb * 100) + '%' : ''}<div class="bar"><i style="width:${pct}%"></i></div><small class="muted">${S.xp} / ${S.xpNext} XP${nv ? ' · до VIP ' + nv.n + ': ур. ' + nv.lvl : ''}</small></div>`;
+  } else lvl = `<p class="muted" style="margin:0 0 14px">Уровень ${x.l} ${vp.e} ${x.v ? esc(vp.n) : ''} · достижений: ${p.ach || 0}/${M.ach.length}</p>`;
+  $('#profBox').innerHTML =
+    (own ? '' : '<button class="chip back" id="profBack">← К списку игроков</button>') +
+    `<div class="phead">${avatar(p.name, 'big')}<div><h2 class="disp pname">${esc(p.name)}${ti}${own ? ' <small>это вы</small>' : ''}</h2>
+      <p class="muted"><span class="dot ${p.online ? '' : 'off'}"></span>${p.online ? 'сейчас в игре' : 'был(а) ' + fmtAgo(p.lastSeen)} · с нами с ${fmtDate(p.createdAt)}</p></div></div>
+    ${lvl}
+    <div class="ranks">${rk(true, p.ranks.balance, 'по балансу')}${rk(p.totalWon > 0, p.ranks.totalWon, 'по выигрышам')}${rk(p.playSeconds > 0, p.ranks.playSeconds, 'по времени')}${rk(p.games > 0, p.ranks.games, 'по партиям')}<span class="rank" style="background:rgba(255,255,255,.06);border-color:var(--line)">из ${p.totalPlayers}</span></div>
+    <div class="stats big">${st.map(([k, v]) => `<div class="stat"><span class="muted">${k}</span><b>${esc(v)}</b></div>`).join('')}</div>
+    <p class="muted" style="margin-top:16px">Процент побед: ${wr}%</p><div class="bar"><i style="width:${wr}%"></i></div>` +
+    (own ? `<ul class="feat"><li>Кэшбэк с проигрышей зависит от VIP и выплачивается из системного пула.</li><li>VIP-кейс — с ${M.vip[M.cases.gold.minVip].n}, приватные дуэли — с ${M.vip[M.duel.vipMin].n}.</li></ul><div class="sect" id="refBox"><p class="muted">Загрузка рефералов…</p></div><button class="btn ghost" id="profOut" style="margin-top:20px">Выйти из аккаунта</button>`
+           : '<button class="btn" id="profSend" style="margin-top:20px;width:100%">💸 Перевести игроку</button>');
+  const g = id => $(id);
+  if (g('#profBack')) g('#profBack').onclick = () => openView('players');
+  if (g('#profOut')) g('#profOut').onclick = () => logout();
+  if (g('#profSend')) g('#profSend').onclick = () => { $('#xto').value = p.name; openView('bank'); };
+  if (own) loadRefs();
+}
+async function loadRefs() {
+  try { renderRefs((await api('referrals')).refs); } catch(e) { const b = $('#refBox'); if (b) b.innerHTML = ''; }
+}
+function renderRefs(r) {
+  const b = $('#refBox'); if (!b) return;
+  const link = location.href.split('?')[0].split('#')[0] + '?ref=' + r.code;
+  b.innerHTML = `<h2>Реферальная программа</h2><p class="muted">Приглашайте друзей: ${+(r.pct1 * 100).toFixed(2)}% от ставок их самих (1 уровень) и ${+(r.pct2 * 100).toFixed(2)}% от ставок их приглашённых (2 уровень) зачисляются вам.</p>
+    <div class="row"><input id="refLink" type="text" readonly value="${esc(link)}"><button class="btn ghost" id="refCopy" style="flex:none">Копировать</button></div>
+    <div class="stats big" style="margin-top:12px">${[['Приглашено (1 ур.)', r.ref1], ['2 уровень', r.ref2], ['Заработано', money(r.earned)], ['Оборот рефералов', money(r.wager1 + r.wager2)]].map(([k, v]) => `<div class="stat"><span class="muted">${k}</span><b>${esc(v)}</b></div>`).join('')}</div>
+    ${r.list.length ? `<ul class="lb" style="margin-top:12px">${r.list.map(x => `<li data-n="${esc(x.name)}" class="tap"><span class="nm"><b>${esc(x.name)}</b><small>с ${fmtDate(x.joinedAt)}</small></span><span class="vl">${money(x.wagered)}</span></li>`).join('')}</ul>` : '<p class="hint">Пока никто не зарегистрировался по вашей ссылке.</p>'}`;
+  $('#refCopy').onclick = async () => {
+    try { await navigator.clipboard.writeText(link); } catch(e) { $('#refLink').select(); document.execCommand('copy'); }
+    toast('Ссылка скопирована');
+  };
+}
+$('#profBox').onclick = openFromList;
+
+/* ---------- Дуэли Coinflip (P2P) ---------- */
+let dSide = 'heads', lastDuels = null;
+function syncDuels() {
+  clearInterval(duelTimer); duelTimer = null;
+  if (S && view === 'games' && game === 'duels') {
+    loadDuels();
+    duelTimer = setInterval(() => { if (!document.hidden && !busy) loadDuels(); }, 4000); // опрос вместо WebSocket
+  }
+}
+async function loadDuels() {
+  try { const j = await api('duels'); applyState(j.state); renderDuels(j.duels); } catch(e) {}
+}
+function renderDuels(d) {
+  lastDuels = d;
+  $('#dList').innerHTML = d.open.length ? d.open.map(r =>
+    `<li><span class="nm"><b>${r.vip ? '👑 ' : ''}${esc(r.creator)}</b><small>на ${r.side === 'heads' ? 'орла' : 'решку'} · хэш ${esc(r.hash.slice(0, 8))}…</small></span><span class="vl">${money(r.bet)}</span><button class="btn ${r.mine ? 'ghost' : ''}" data-id="${r.id}" data-a="${r.mine ? 'cancel' : 'join'}">${r.mine ? 'Отмена' : 'Играть'}</button></li>`).join('')
+    : '<li class="empty">Открытых комнат нет. Создайте свою.</li>';
+  $('#dRecent').innerHTML = d.recent.length ? d.recent.map((r, i) =>
+    `<li><span class="nm"><b>${esc(r.winner)} победил</b><small>${esc(r.creator)} vs ${esc(r.joiner)} · ${r.flip === 'heads' ? 'орёл' : 'решка'}</small></span><span class="vl">${money(r.bet)}</span><button class="chip" data-i="${i}">Проверить</button></li>`).join('')
+    : '<li class="empty">Пока пусто</li>';
+}
+$('#dSide').onclick = e => {
+  const c = e.target.closest('.chip'); if (!c) return;
+  dSide = c.dataset.t; $$('#dSide .chip').forEach(x => x.classList.toggle('on', x === c));
+};
+$('#dCreate').onclick = async () => {
+  try { const j = await api('duelCreate', {bet: +$('#dBet').value, side: dSide, vip: $('#dVip').checked}); applyState(j.state); toast('Комната создана'); loadDuels(); }
+  catch(e) { toast(e.message, 'err'); }
+};
+$('#dList').onclick = async e => {
+  const b = e.target.closest('button'); if (!b) return;
+  try {
+    const j = b.dataset.a === 'join' ? await api('duelJoin', {id: b.dataset.id, clientSeed: rndHex()}) : await api('duelCancel', {id: b.dataset.id});
+    applyState(j.state);
+    if (j.duel) {
+      const d = j.duel, face = d.flip === 'heads' ? 'орёл' : 'решка';
+      toast(d.youWon ? `🎉 Победа! +${money(d.payout)} (выпал ${face})` : `Проигрыш −${money(d.bet)} (выпал ${face})`, d.youWon ? 'ok' : 'err');
+      if (navigator.vibrate) navigator.vibrate(d.youWon ? [40,50,40] : 20);
+    }
+    loadDuels();
+  } catch(err) { toast(err.message, 'err'); }
+};
+$('#dRecent').onclick = async e => {
+  const b = e.target.closest('[data-i]'); if (!b) return;
+  const r = lastDuels.recent[+b.dataset.i];
+  try {
+    const h = await sha256hex(r.seed), f = parseInt((await sha256hex(r.seed + ':' + r.clientSeed + ':' + r.id)).slice(0, 8), 16) % 2 === 0 ? 'heads' : 'tails';
+    const ok = h === r.hash && f === r.flip;
+    toast(ok ? '✓ Честно: хэш сида и результат совпали' : '⚠ Проверка не сошлась', ok ? 'ok' : 'err');
+  } catch(err) { toast('Проверка недоступна в этом браузере', 'err'); }
+};
+
+/* ---------- Кейсы ---------- */
+let selCase = null, selItem = null, mkt = [], craftSel = [];
+const dropTile = d => d.t === 'c'
+  ? `<div class="it ${d.a >= 10 ? 'r3' : d.a >= 3 ? 'r2' : d.a >= 1 ? 'r1' : 'r0'}"><div class="ie">🪙</div><b>${money(d.a)}</b></div>`
+  : itemTile(d.a, 1);
+function itemTile(id, n, extra) {
+  const it = CONF.mods.items[id], rc = it.r < 0 ? 'rt' : 'r' + it.r;
+  return `<div class="it ${rc} ${extra || ''}" data-id="${id}">${n > 1 ? `<span class="cn">×${n}</span>` : ''}<div class="ie">${it.e}</div><b>${esc(it.n)}</b><small class="muted">${money(it.v)}</small></div>`;
+}
+function renderCases() {
+  const M = CONF.mods;
+  $('#caseList').innerHTML = Object.entries(M.cases).map(([k, c]) =>
+    `<button class="case ${selCase === k ? 'on' : ''}" data-k="${k}"><span class="ce">${c.e}</span><b>${esc(c.n)}</b><small>${money(c.price)}${c.minVip > S.vip ? ' · 🔒 ' + M.vip[c.minVip].n : ''}</small></button>`).join('');
+  if (selCase) renderCaseStage();
+}
+function renderCaseStage() {
+  const M = CONF.mods, c = M.cases[selCase], tk = S.inv['tk_' + selCase] || 0;
+  $('#caseStage').hidden = false; $('#csTitle').textContent = c.n;
+  $('#caseBuy').textContent = 'Открыть за ' + money(c.price);
+  $('#caseBuy').disabled = busy || S.balance < c.price || c.minVip > S.vip;
+  $('#caseTicket').hidden = !tk; $('#caseTicket').disabled = busy; $('#caseTicket').textContent = 'По билету (' + tk + ')';
+  $('#caseRates').innerHTML = c.drops.map(d => `<li>${d.t === 'c' ? money(d.a) : esc(M.items[d.a].n)} — ${d.w}%</li>`).join('');
+}
+function fillStrip(c, result) {
+  const t = []; for (let i = 0; i < 40; i++) t.push(c.drops[Math.random() * c.drops.length | 0]);
+  if (result) t[32] = result;
+  const s = $('#strip'); s.style.transition = 'none'; s.style.transform = 'translateX(0)'; s.innerHTML = t.map(dropTile).join('');
+}
+$('#caseList').onclick = e => {
+  const b = e.target.closest('.case'); if (!b || busy) return;
+  selCase = b.dataset.k; $('#caseRes').className = 'result'; renderCases(); fillStrip(CONF.mods.cases[selCase]);
+};
+async function openCase(ticket) {
+  if (busy || !selCase) return;
+  busy = true; renderCaseStage(); $('#caseRes').className = 'result';
+  try {
+    const j = await api('openCase', {case: selCase, ticket: !!ticket});
+    const c = CONF.mods.cases[selCase], d = j.drop;
+    fillStrip(c, d);
+    const strip = $('#strip'), W = $('.reelwrap').clientWidth, off = -(32 * 96 + 45 - W / 2 + (Math.random() * 40 - 20));
+    await sleep(40); strip.getBoundingClientRect();
+    strip.style.transition = 'transform 4.2s cubic-bezier(.1,.75,.1,1)'; strip.style.transform = `translateX(${off}px)`;
+    await sleep(4400);
+    applyState(j.state);
+    const it = d.t === 'i' ? CONF.mods.items[d.a] : null, val = it ? it.v : d.a;
+    $('#caseRes').className = 'result ' + (val >= c.price ? 'win' : 'lose');
+    $('#caseRes').innerHTML = `Выпало: ${it ? it.e + ' ' + esc(it.n) : '🪙 ' + money(d.a)}<small>${it ? RAR(it.r) + ' · цена ' + money(it.v) : 'зачислено на баланс'}</small>`;
+    if (navigator.vibrate) navigator.vibrate([30, 40, 30]);
+  } catch(e) { toast(e.message, 'err'); }
+  busy = false; renderCaseStage();
+}
+$('#caseBuy').onclick = () => openCase(false);
+$('#caseTicket').onclick = () => openCase(true);
+
+function renderInv() {
+  const inv = S.inv, M = CONF.mods, ids = Object.keys(inv).sort((a, b) => M.items[b].r - M.items[a].r);
+  $('#invList').innerHTML = ids.length ? ids.map(id => itemTile(id, inv[id], selItem === id ? 'sel' : '')).join('')
+    : '<p class="empty" style="grid-column:1/-1">Пусто. Откройте кейс или крутите колесо.</p>';
+  const a = $('#invAct');
+  if (!selItem || !inv[selItem]) { a.innerHTML = ''; return; }
+  const it = M.items[selItem];
+  a.innerHTML = `<div class="invact"><b>${it.e} ${esc(it.n)}</b> <span class="muted">${RAR(it.r)} · цена ${money(it.v)}</span>
+    <div class="row"><button class="btn ghost" data-a="sell">Продать системе ${money(it.v * M.fees.sell)}</button>${it.k === 'title' ? `<button class="btn ghost" data-a="equip">${S.title === selItem ? 'Снять титул' : 'Надеть титул'}</button>` : ''}</div>
+    <div class="row"><input id="lprice" type="number" min="0.1" step="0.1" value="${it.v}" aria-label="Цена на рынке"><button class="btn" data-a="list">На рынок</button></div></div>`;
+}
+$('#invList').onclick = e => { const t = e.target.closest('.it'); if (!t) return; selItem = t.dataset.id; renderInv(); };
+$('#invAct').onclick = async e => {
+  const b = e.target.closest('button'); if (!b) return;
+  try {
+    let j;
+    if (b.dataset.a === 'sell') j = await api('sellItem', {item: selItem, qty: 1});
+    if (b.dataset.a === 'equip') j = await api('equip', {item: S.title === selItem ? '' : selItem});
+    if (b.dataset.a === 'list') j = await api('listItem', {item: selItem, price: +$('#lprice').value});
+    if (j.market) mkt = j.market;
+    applyState(j.state); toast(b.dataset.a === 'list' ? 'Лот выставлен' : 'Готово');
+  } catch(err) { toast(err.message, 'err'); }
+};
+
+async function loadMarket() {
+  try { const j = await api('market'); mkt = j.market; applyState(j.state); } catch(e) {}
+}
+function renderMarket() {
+  const M = CONF.mods;
+  $('#mkNote').textContent = `Цены задают игроки. Комиссия рынка: ${Math.round(M.fees.market * 100)}% с продавца.`;
+  $('#mList').innerHTML = mkt.length ? mkt.map(m => {
+    const it = M.items[m.item];
+    return `<li><span style="font-size:26px">${it.e}</span><span class="nm"><b>${esc(it.n)}</b><small>${RAR(it.r)} · ${esc(m.seller)}</small></span><span class="vl">${money(m.price)}</span><button class="btn ${m.mine ? 'ghost' : ''}" data-id="${m.id}" data-a="${m.mine ? 'cancel' : 'buy'}">${m.mine ? 'Снять' : 'Купить'}</button></li>`;
+  }).join('') : '<li class="empty">Лотов пока нет. Выставьте предмет из инвентаря.</li>';
+}
+$('#mList').onclick = async e => {
+  const b = e.target.closest('button'); if (!b) return;
+  try {
+    const j = await api(b.dataset.a === 'buy' ? 'buyListing' : 'cancelListing', {id: b.dataset.id});
+    mkt = j.market; applyState(j.state); toast(b.dataset.a === 'buy' ? 'Покупка совершена' : 'Лот снят');
+  } catch(err) { toast(err.message, 'err'); loadMarket(); }
+};
+
+function renderCraft() {
+  const inv = S.inv, M = CONF.mods, n = M.craft.count;
+  const left = id => inv[id] - craftSel.filter(x => x === id).length;
+  const avail = Object.keys(inv).filter(id => M.items[id].r >= 0 && M.items[id].r < M.rarity.length - 1 && left(id) > 0);
+  $('#crInv').innerHTML = avail.map(id => itemTile(id, left(id))).join('') || '<p class="empty" style="grid-column:1/-1">Нет предметов для крафта</p>';
+  $('#crSel').innerHTML = Array.from({length: n}, (_, i) => craftSel[i] ? itemTile(craftSel[i], 1, 'pick') : '<div class="it slot"><div class="ie">＋</div></div>').join('');
+  const r = craftSel.length ? M.items[craftSel[0]].r : null;
+  $('#crInfo').textContent = r === null ? `Выберите ${n} предметов одной редкости — получите 1 предмет редкостью выше.` : `Шанс успеха: ${Math.round(M.craft.chance[r] * 100)}% → ${M.rarity[r + 1]}. При неудаче предметы сгорают.`;
+  $('#crBtn').disabled = craftSel.length !== n;
+}
+$('#crInv').onclick = e => {
+  const t = e.target.closest('.it'); if (!t || craftSel.length >= CONF.mods.craft.count) return;
+  const id = t.dataset.id;
+  if (craftSel.length && CONF.mods.items[craftSel[0]].r !== CONF.mods.items[id].r) return toast('Нужна одна редкость', 'err');
+  craftSel.push(id); renderCraft();
+};
+$('#crSel').onclick = e => { const t = e.target.closest('.pick'); if (!t) return; craftSel.splice(craftSel.indexOf(t.dataset.id), 1); renderCraft(); };
+$('#crBtn').onclick = async () => {
+  try {
+    const j = await api('craft', {items: craftSel}); craftSel = []; applyState(j.state);
+    toast(j.craft.ok ? 'Успех! Получено: ' + CONF.mods.items[j.craft.item].n : 'Крафт не удался, предметы сгорели', j.craft.ok ? 'ok' : 'err');
+  } catch(e) { toast(e.message, 'err'); }
+};
+
+/* ---------- Бонусы: колесо, квесты, достижения, промокод ---------- */
+let wheelRot = 0, wheelBuilt = false;
+const rewardText = r => [r.c ? money(r.c) : '', r.xp ? r.xp + ' XP' : '', r.i ? CONF.mods.items[r.i].e + ' ×' + (r.q || 1) : ''].filter(Boolean).join(' + ');
+function buildWheel() {
+  const W = CONF.mods.wheel, seg = 360 / W.length, cols = ['#6d28d9','#0891b2','#be185d','#059669','#7c3aed','#0e7490','#db2777','#b45309'];
+  $('#wheel').style.background = `conic-gradient(${W.map((w, i) => `${cols[i % cols.length]} ${i * seg}deg ${(i + 1) * seg}deg`).join(',')})`;
+  $('#wheel').innerHTML = W.map((w, i) => `<div class="wl" style="transform:rotate(${i * seg + seg / 2}deg)"><span>${w.t === 'c' ? '$' + w.a : CONF.mods.items[w.a].e}</span></div>`).join('');
+}
+function renderBonus() {
+  const M = CONF.mods;
+  if (!wheelBuilt) { buildWheel(); wheelBuilt = true; }
+  tickSpin();
+  $('#qList').innerHTML = M.quests.map(q => {
+    const st = S.quests.find(x => x.id === q.id) || {p: 0, done: false}, pct = Math.min(100, Math.round(st.p / q.t * 100)), ready = st.p >= q.t && !st.done;
+    return `<li><div class="qi"><b>${esc(q.n)}</b><span class="muted"> · ${q.p === 'd' ? 'день' : 'неделя'}</span><div class="bar"><i style="width:${pct}%"></i></div><small class="muted">${st.p} / ${q.t} · награда: ${rewardText(q.r)}</small></div><button class="btn ${ready ? '' : 'ghost'}" data-id="${q.id}" ${ready ? '' : 'disabled'}>${st.done ? 'Получено' : 'Забрать'}</button></li>`;
+  }).join('');
+  $('#achList').innerHTML = M.ach.map(a => { const on = S.ach.includes(a.id); return `<div class="ach ${on ? 'on' : ''}"><span class="ie">${a.e}</span><b>${esc(a.n)}</b><small>${on ? 'получено' : '+' + money(a.r)}</small></div>`; }).join('');
+}
+function tickSpin() {
+  if (!S || spinning) return;
+  const left = spinAt - Date.now();
+  $('#spinBtn').disabled = left > 0;
+  if (left > 0) { const h = Math.floor(left / 3600000), m = Math.floor(left % 3600000 / 60000), s = Math.floor(left % 60000 / 1000); $('#spinTxt').textContent = `Следующее вращение через ${h} ч ${m} мин ${s} с`; }
+  else $('#spinTxt').textContent = 'Бесплатное вращение доступно!';
+}
+$('#spinBtn').onclick = async () => {
+  if (spinning) return;
+  spinning = true; $('#spinBtn').disabled = true;
+  try {
+    const j = await api('spin'), seg = 360 / CONF.mods.wheel.length;
+    wheelRot = Math.ceil(wheelRot / 360) * 360 + 2160 + (360 - (j.spin.idx * seg + seg / 2));
+    $('#wheel').style.transform = `rotate(${wheelRot}deg)`;
+    await sleep(4700);
+    const pz = j.spin.prize;
+    spinning = false; applyState(j.state);
+    toast('🎡 Приз: ' + (pz.t === 'c' ? money(pz.a) : CONF.mods.items[pz.a].e + ' ' + CONF.mods.items[pz.a].n));
+  } catch(e) { spinning = false; toast(e.message, 'err'); tickSpin(); }
+};
+$('#qList').onclick = async e => {
+  const b = e.target.closest('button'); if (!b || b.disabled) return;
+  try { const j = await api('claimQuest', {id: b.dataset.id}); applyState(j.state); toast('Награда получена: ' + rewardText(j.quest.r)); }
+  catch(err) { toast(err.message, 'err'); }
+};
+$('#promoBtn').onclick = async () => {
+  try {
+    const j = await api('promo', {code: $('#promoCode').value}); applyState(j.state); $('#promoCode').value = '';
+    toast('Промокод активирован: ' + ([j.promo.reward ? money(j.promo.reward) : '', j.promo.item ? CONF.mods.items[j.promo.item].e : ''].filter(Boolean).join(' + ') || 'готово'));
+  } catch(e) { toast(e.message, 'err'); }
+};
+
+/* ---------- Переводы ---------- */
+$('#xBtn').onclick = async () => {
+  try {
+    const j = await api('transfer', {to: $('#xto').value.trim(), amount: +$('#xamt').value}); applyState(j.state);
+    toast(`Отправлено ${money(j.sent.amount)} → ${j.sent.to}`); $('#xamt').value = ''; loadTransfers();
+  } catch(e) { toast(e.message, 'err'); }
+};
+async function loadTransfers() {
+  try {
+    const j = await api('transfers'); applyState(j.state);
+    $('#xList').innerHTML = j.transfers.length ? j.transfers.map(t => {
+      const out = t.dir === 'out';
+      return `<li><span class="nm"><b>${out ? '→ ' + esc(t.to) : '← ' + esc(t.from)}</b><small>${fmtAgo(t.t)}</small></span><span class="vl" style="color:${out ? 'var(--red)' : 'var(--mint)'}">${out ? '−' : '+'}${money(t.amount)}</span></li>`;
+    }).join('') : '<li class="empty">Переводов пока не было</li>';
+  } catch(e) {}
+}
+
+/* ---------- Реферальная ссылка при регистрации ---------- */
+if (REF && !session) { $('#authTabs [data-m="register"]').click(); $('#authHint').textContent = 'Вас пригласили по коду ' + REF + '. После регистрации вы получите $10 на старт.'; }
 
 /* ---------- Старт ---------- */
 (async function init() {
