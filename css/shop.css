@@ -1,0 +1,168 @@
+/* ==========================================================
+   Кейсы, инвентарь, рынок, крафт: плитки предметов, лента открытия, цвета редкости
+   Порядок подключения файлов важен — см. index.html.
+   ========================================================== */
+
+.r0 {
+  --rc: #9ca3af;
+}
+
+.r1 {
+  --rc: #34d399;
+}
+
+.r2 {
+  --rc: #60a5fa;
+}
+
+.r3 {
+  --rc: #c084fc;
+}
+
+.r4 {
+  --rc: #fbbf24;
+}
+
+.rt {
+  --rc: #f472b6;
+}
+
+.cases {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.case {
+  padding: 16px 8px;
+  border-radius: 28px;
+  text-align: center;
+  background: linear-gradient(165deg, rgba(255, 255, 255, .17), rgba(255, 255, 255, .03));
+  box-shadow: inset 0 1.5px 1px rgba(255, 255, 255, .5), 0 0 0 1px rgba(255, 255, 255, .12);
+  transition: .25s;
+}
+
+.case.on {
+  background: linear-gradient(165deg, rgba(255, 255, 255, .4), rgba(155, 140, 255, .28) 60%, rgba(92, 225, 255, .25));
+  box-shadow: inset 0 1.5px 1px rgba(255, 255, 255, .8), 0 0 0 1px rgba(255, 255, 255, .32), 0 0 34px rgba(92, 225, 255, .5);
+}
+
+.case .ce {
+  display: block;
+  font-size: 38px;
+}
+
+.case small {
+  display: block;
+  color: var(--mute);
+}
+
+.items {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(92px, 1fr));
+  gap: 10px;
+}
+
+.items.slots {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.it {
+  position: relative;
+  padding: 10px 4px;
+  border-radius: 16px;
+  text-align: center;
+  background: rgba(255, 255, 255, .07);
+  border: 2px solid var(--rc, #9ca3af);
+  cursor: pointer;
+  transition: box-shadow .15s;
+}
+
+.it.sel,
+.it:hover {
+  box-shadow: 0 0 18px var(--rc, #9ca3af);
+}
+
+.it .ie {
+  font-size: 28px;
+  line-height: 1.2;
+}
+
+.it b {
+  display: block;
+  font-size: 11.5px;
+  line-height: 1.25;
+  min-height: 28px;
+}
+
+.it small {
+  font-size: 11px;
+}
+
+.it .cn {
+  position: absolute;
+  top: 3px;
+  right: 6px;
+  font-weight: 800;
+  font-size: 12px;
+}
+
+.it.slot {
+  border-style: dashed;
+  border-color: var(--line);
+  color: var(--mute);
+  cursor: default;
+  min-height: 92px;
+  display: grid;
+  place-items: center;
+}
+
+.reelwrap {
+  position: relative;
+  overflow: hidden;
+  border-radius: 26px;
+  background: rgba(0, 0, 0, .35);
+  border: 1px solid var(--line);
+  padding: 10px 0;
+  margin: 14px 0;
+}
+
+.strip {
+  display: flex;
+  gap: 6px;
+  will-change: transform;
+}
+
+.strip .it {
+  flex: 0 0 90px;
+  cursor: default;
+}
+
+.pointer {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--cyan);
+  box-shadow: 0 0 14px var(--cyan);
+  z-index: 2;
+  transform: translateX(-50%);
+}
+
+.invact {
+  margin-top: 14px;
+  padding: 14px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, .07);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, .22), inset 0 0 0 1px rgba(255, 255, 255, .07);
+}
+
+.invact .row {
+  flex-wrap: wrap;
+}
+
+.invact input {
+  flex: 1;
+  min-width: 120px;
+}

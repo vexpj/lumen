@@ -1,0 +1,86 @@
+/* ==========================================================
+   Основа: переменные (цвета, кромка стекла), сброс, типографика
+   Здесь меняйте палитру и шрифты. Всё остальное берёт значения отсюда.
+   Порядок подключения файлов важен — см. index.html.
+   ========================================================== */
+
+:root {
+  --bg: #04050d;
+  --ink: #f6f7ff;
+  --mute: #a0a8cc;
+  --violet: #9b8cff;
+  --cyan: #5ce1ff;
+  --pink: #ff7ad9;
+  --mint: #4df0b0;
+  --red: #ff6b8b;
+  --gold: #ffd166;
+  --line: rgba(255, 255, 255, .2);
+  --rim: linear-gradient(140deg, rgba(255, 255, 255, .9), rgba(255, 255, 255, .14) 26%, rgba(255, 255, 255, .02) 52%, rgba(255, 255, 255, .3) 78%, rgba(255, 255, 255, .75));
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  -webkit-tap-highlight-color: transparent;
+  background: var(--bg);
+  color: var(--ink);
+  font: 400 15px/1.5 Manrope, system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+.disp {
+  font-family: Unbounded, Manrope, sans-serif;
+  font-weight: 700;
+  letter-spacing: -.01em;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  border: 0;
+  background: none;
+  touch-action: manipulation;
+}
+
+input {
+  font: inherit;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 2px;
+}
+
+label {
+  display: block;
+  color: var(--mute);
+  font-size: 13px;
+  margin: 0 0 6px 2px;
+}
+
+.muted {
+  color: var(--mute);
+}
+
+h2 {
+  font-size: 18px;
+  margin-bottom: 6px;
+}

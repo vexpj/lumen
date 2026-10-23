@@ -1,0 +1,48 @@
+/* ==========================================================
+   Фон: «аврора» из светящихся цветных пятен
+   Стеклу нужно что преломлять, поэтому фон яркий и медленно движется.
+   Порядок подключения файлов важен — см. index.html.
+   ========================================================== */
+
+html::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background: radial-gradient(60% 50%at 15% 10%, rgba(124, 92, 255, .55), transparent 70%), radial-gradient(55% 45%at 90% 20%, rgba(34, 211, 238, .38), transparent 70%), radial-gradient(60% 50%at 70% 95%, rgba(255, 92, 200, .34), transparent 70%), radial-gradient(40% 35%at 5% 90%, rgba(255, 190, 90, .22), transparent 70%);
+}
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  z-index: -1;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: .7;
+  mix-blend-mode: screen;
+  animation: drift 24s ease-in-out infinite alternate;
+}
+
+body::before {
+  width: 46vmax;
+  height: 46vmax;
+  left: -12vmax;
+  top: 18vmax;
+  background: radial-gradient(circle, rgba(139, 92, 246, .9), transparent 65%);
+}
+
+body::after {
+  width: 40vmax;
+  height: 40vmax;
+  right: -10vmax;
+  top: -8vmax;
+  background: radial-gradient(circle, rgba(34, 211, 238, .8), transparent 65%);
+  animation-delay: -9s;
+}
+
+@keyframes drift {
+  to {
+    transform: translate(9vmax, 7vmax) scale(1.18) rotate(20deg);
+  }
+}

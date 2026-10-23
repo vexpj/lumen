@@ -1,0 +1,44 @@
+/* ==========================================================
+   Общие компоненты: уведомления (toast)
+   Порядок подключения файлов важен — см. index.html.
+   ========================================================== */
+
+#toasts {
+  position: fixed;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 99;
+  display: grid;
+  gap: 8px;
+  width: min(420px, calc(100% - 24px));
+}
+
+.toast {
+  padding: 13px 18px;
+  border-radius: 999px;
+  font-weight: 600;
+  text-align: center;
+  -webkit-backdrop-filter: blur(22px) saturate(200%);
+  backdrop-filter: blur(22px) saturate(200%);
+  background: linear-gradient(165deg, rgba(255, 255, 255, .26), rgba(255, 255, 255, .08));
+  box-shadow: inset 0 1.5px 1px rgba(255, 255, 255, .6), 0 0 0 1px rgba(255, 255, 255, .2), 0 16px 40px -12px rgba(0, 0, 0, .75);
+  animation: tin .25s;
+}
+
+.toast.err {
+  box-shadow: inset 0 1.5px 1px rgba(255, 255, 255, .5), 0 0 0 1px rgba(255, 107, 139, .7), 0 0 30px rgba(255, 107, 139, .45);
+  color: #ffc2d0;
+}
+
+.toast.ok {
+  box-shadow: inset 0 1.5px 1px rgba(255, 255, 255, .5), 0 0 0 1px rgba(77, 240, 176, .7), 0 0 30px rgba(77, 240, 176, .45);
+  color: #b8ffe3;
+}
+
+@keyframes tin {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
