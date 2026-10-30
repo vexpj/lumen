@@ -1,320 +1,287 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" data-theme="emerald">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#04050d">
+<meta name="theme-color" content="#0a0f0d">
 <meta name="color-scheme" content="dark">
-<link rel="manifest" href="manifest.json">
-<link rel="icon" type="image/png" href="icons/icon-192.png">
-<link rel="apple-touch-icon" href="icons/icon-192.png">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="LUMEN">
 <meta name="description" content="LUMEN — виртуальное казино на внутриигровую валюту">
 <title>Lumen — виртуальное казино</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&family=Unbounded:wght@500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/base.css">
-<link rel="stylesheet" href="css/background.css">
-<link rel="stylesheet" href="css/glass.css">
-<link rel="stylesheet" href="css/layout.css">
-<link rel="stylesheet" href="css/components.css">
-<link rel="stylesheet" href="css/games.css">
-<link rel="stylesheet" href="css/shop.css">
-<link rel="stylesheet" href="css/social.css">
-<link rel="stylesheet" href="css/responsive.css">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/png" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<!-- Вход -->
+
+<!-- Декор ивента (виден только в теме «Хэллоуин») -->
+<div id="spooky" aria-hidden="true"><span>🦇</span><span>🎃</span><span>👻</span><span>🕷️</span><span>🦇</span><span>💀</span></div>
+
+<!-- ============ ВХОД ============ -->
 <div id="auth">
   <div class="authbox">
     <h1 class="logo">LUMEN</h1>
-    <p class="tag" data-i18n="auth.kazino_na_virtualnye_dollary"></p>
-    <div class="glass pad">
+    <p class="tag">Казино на виртуальные доллары. Реальные деньги не нужны.</p>
+    <div class="card pad">
       <div class="tabs" id="authTabs">
-        <button class="on" data-m="login" data-i18n="auth.vhod"></button>
-        <button data-m="register" data-i18n="auth.registratsiya"></button>
+        <button class="on" data-m="login">Вход</button>
+        <button data-m="register">Регистрация</button>
       </div>
-      <div class="field"><label for="u" data-i18n="auth.nik"></label><input id="u" type="text" autocomplete="username" maxlength="16"></div>
-      <div class="field"><label for="p" data-i18n="auth.parol"></label><input id="p" type="password" autocomplete="current-password"></div>
+      <div class="field"><label for="u">Ник</label><input id="u" type="text" autocomplete="username" maxlength="16"></div>
+      <div class="field"><label for="p">Пароль</label><input id="p" type="password" autocomplete="current-password"></div>
       <div class="err" id="authErr"></div>
-      <button class="btn big" id="authBtn" data-i18n="auth.voyti"></button>
-      <p class="hint" id="authHint" hidden="" data-i18n="auth.posle_registratsii_vy_poluchite"></p>
+      <button class="btn big" id="authBtn">Войти</button>
+      <p class="hint" id="authHint" hidden>После регистрации вы получите $10 на старт.</p>
     </div>
   </div>
 </div>
 
-<!-- Приложение -->
-<div id="app" hidden="">
-  <header class="top glass">
-    <h2 class="brand disp" style="margin:0">LUMEN</h2>
+<!-- ============ ПРИЛОЖЕНИЕ ============ -->
+<div id="app" hidden>
+  <header class="top card">
+    <h2 class="brand">LUMEN</h2>
     <nav class="nav" id="nav">
-      <button class="on" data-v="games"><i>🎰</i><span data-i18n="header.igry"></span></button>
-      <button data-v="cases"><i>📦</i><span data-i18n="header.keysy"></span></button>
-      <button data-v="bonus"><i>🎁</i><span data-i18n="header.bonusy"></span></button>
-      <button data-v="bank"><i>🏦</i><span data-i18n="header.bank"></span></button>
-      <button data-v="top"><i>🏆</i><span data-i18n="header.lyudi"></span></button>
-      <button data-v="profile"><i>👤</i><span data-i18n="header.kabinet"></span></button>
+      <button class="on" data-v="games"><i>🎰</i><span>Игры</span></button>
+      <button data-v="cases"><i>📦</i><span>Кейсы</span></button>
+      <button data-v="bonus"><i>🎁</i><span>Бонусы</span></button>
+      <button data-v="bank"><i>🏦</i><span>Банк</span></button>
+      <button data-v="top"><i>🏆</i><span>Люди</span></button>
+      <button data-v="profile"><i>👤</i><span>Кабинет</span></button>
+      <button data-v="event" id="navEvent" class="evnav" hidden><i>🎃</i><span>Ивент</span></button>
     </nav>
-    <div class="me">
-      <span class="uname" id="uname"></span>
-      <span class="lv" id="lv"></span>
-      <span class="bal" id="bal">$0.00</span>
-      <button class="chip" id="logout" data-i18n-title="header.vyyti" data-i18n="header.vyyti_2"></button>
-    </div>
+    <div class="me"><span class="lv" id="lv"></span><span class="bal" id="bal">$0.00</span></div>
   </header>
 
   <main>
-    <!-- Игры -->
+    <!-- ---------- Игры ---------- -->
     <section class="view on" id="v-games">
+      <div class="banner" id="evBanner" hidden></div>
       <div class="picker" id="picker">
-        <button class="gbtn on" data-g="slots"><span>🎰</span><bdi data-i18n="games.sloty"></bdi></button>
-        <button class="gbtn" data-g="roulette"><span>🎡</span><bdi data-i18n="games.ruletka"></bdi></button>
-        <button class="gbtn" data-g="dice"><span>🎲</span><bdi data-i18n="games.kosti"></bdi></button>
-        <button class="gbtn" data-g="coin"><span>🪙</span><bdi data-i18n="games.monetka"></bdi></button>
-        <button class="gbtn" data-g="duels"><span>⚔️</span><bdi data-i18n="games.dueli"></bdi></button>
+        <button class="gbtn on" data-g="slots"><span>🎰</span>Слоты</button>
+        <button class="gbtn" data-g="roulette"><span>🎡</span>Рулетка</button>
+        <button class="gbtn" data-g="dice"><span>🎲</span>Кости</button>
+        <button class="gbtn" data-g="coin"><span>🪙</span>Монетка</button>
+        <button class="gbtn" data-g="duels"><span>⚔️</span>Дуэли</button>
       </div>
-      <div class="glass pad play" id="playPanel">
+
+      <div class="card pad play" id="playPanel">
         <div>
           <div class="stage on" data-s="slots"><div class="stage-in">
             <div class="reels"><div class="reel">🍒</div><div class="reel">🍋</div><div class="reel">🔔</div></div>
-            <p class="hint"><bdi data-i18n="games.tri_odinakovyh_5_8"></bdi><br><bdi data-i18n="games.dve_vishni_1_2"></bdi></p>
+            <p class="hint">Три одинаковых: 🍒 ×5 · 🍋 ×8 · 🔔 ×15 · 💎 ×30 · 7️⃣ ×77.<br>Две вишни: ×1.2</p>
           </div></div>
           <div class="stage" data-s="roulette"><div class="stage-in">
             <div class="rball green" id="rball">0</div>
             <div class="rch" id="rch">
-              <button class="chip on" data-t="red" data-i18n="games.krasnoe_2"></button>
-              <button class="chip" data-t="black" data-i18n="games.chernoe_2"></button>
-              <button class="chip" data-t="even" data-i18n="games.chetnoe_2"></button>
-              <button class="chip" data-t="odd" data-i18n="games.nechetnoe_2"></button>
+              <button class="chip on" data-t="red">Красное ×2</button>
+              <button class="chip" data-t="black">Чёрное ×2</button>
+              <button class="chip" data-t="even">Чётное ×2</button>
+              <button class="chip" data-t="odd">Нечётное ×2</button>
               <button class="chip" data-t="low">1–18 ×2</button>
               <button class="chip" data-t="high">19–36 ×2</button>
-              <button class="chip" data-t="number" data-i18n="games.chislo_36"></button>
+              <button class="chip" data-t="number">Число ×36</button>
             </div>
-            <div id="rnumWrap" hidden=""><label for="rnum" data-i18n="games.chislo_ot_0_do"></label><input id="rnum" type="number" min="0" max="36" step="1" value="7"></div>
+            <div id="rnumWrap" hidden><label for="rnum">Число от 0 до 36</label><input id="rnum" type="number" min="0" max="36" step="1" value="7"></div>
           </div></div>
           <div class="stage" data-s="dice"><div class="stage-in">
             <div class="droll" id="droll">50</div>
-            <div class="rch" id="dmode">
-              <button class="chip on" data-m="under" data-i18n="games.menshe"></button>
-              <button class="chip" data-m="over" data-i18n="games.bolshe"></button>
-            </div>
-            <input id="dt" type="range" min="5" max="96" step="1" value="50" data-i18n-aria-label="games.tsel">
-            <div class="dinfo"><span><bdi data-i18n="games.tsel_2"></bdi> <b id="dtv">50</b></span><span><bdi data-i18n="games.shans"></bdi> <b id="dch">49%</b></span><span><bdi data-i18n="games.vyplata"></bdi> <b id="dml">×1.98</b></span></div>
+            <div class="rch" id="dmode"><button class="chip on" data-m="under">Меньше</button><button class="chip" data-m="over">Больше</button></div>
+            <input id="dt" type="range" min="5" max="96" step="1" value="50" aria-label="Цель">
+            <div class="dinfo"><span>Цель: <b id="dtv">50</b></span><span>Шанс: <b id="dch">49%</b></span><span>Выплата: <b id="dml">×1.98</b></span></div>
           </div></div>
           <div class="stage" data-s="coin"><div class="stage-in">
-            <div class="coin" id="coin" data-i18n="games.o"></div>
-            <div class="rch" id="cch"><button class="chip on" data-t="heads" data-i18n="games.orel_2"></button><button class="chip" data-t="tails" data-i18n="games.reshka_2"></button></div>
-            <p class="hint"><bdi data-i18n="games.provably_fair_rezultat_sha"></bdi> <code id="fairHash">…</code></p>
+            <div class="coin" id="coin">О</div>
+            <div class="rch" id="cch"><button class="chip on" data-t="heads">Орёл ×2</button><button class="chip" data-t="tails">Решка ×2</button></div>
+            <p class="hint">Честная игра: результат = SHA-256(сид сервера : ваш сид : номер). Хэш сида до броска: <code id="fairHash">…</code></p>
           </div></div>
         </div>
         <div>
-          <label for="bet" data-i18n="games.stavka"></label>
+          <label for="bet">Ставка</label>
           <div class="betrow"><button class="chip" data-c="half">½</button><input id="bet" type="number" inputmode="decimal" min="0.1" step="0.1" value="1"><button class="chip" data-c="x2">×2</button></div>
           <div class="chips" id="chips">
-            <button class="chip" data-v="0.5">$0.5</button><button class="chip" data-v="1">$1</button><button class="chip" data-v="5">$5</button><button class="chip" data-v="10">$10</button><button class="chip" data-c="max" data-i18n="games.vse"></button>
+            <button class="chip" data-v="0.5">$0.5</button><button class="chip" data-v="1">$1</button><button class="chip" data-v="5">$5</button><button class="chip" data-v="10">$10</button><button class="chip" data-c="max">Всё</button>
           </div>
-          <button class="btn big" id="play" data-i18n="games.igrat"></button>
+          <button class="btn big" id="play">Играть</button>
           <div class="result" id="result"></div>
           <p class="hint" id="feeNote"></p>
         </div>
       </div>
-      <div class="glass pad" id="duelsPanel" hidden="">
+
+      <div class="card pad" id="duelsPanel" hidden>
         <div class="grid2">
           <div>
-            <h2 data-i18n="games.sozdat_komnatu"></h2>
-            <div class="rch" id="dSide" style="justify-content:flex-start;margin:10px 0"><button class="chip on" data-t="heads" data-i18n="games.orel"></button><button class="chip" data-t="tails" data-i18n="games.reshka"></button></div>
-            <label for="dBet" data-i18n="games.stavka_2"></label>
+            <h2>Создать комнату</h2>
+            <div class="rch left" id="dSide"><button class="chip on" data-t="heads">Орёл</button><button class="chip" data-t="tails">Решка</button></div>
+            <label for="dBet">Ставка</label>
             <input id="dBet" type="number" min="0.5" step="0.5" value="1" inputmode="decimal">
-            <label id="dVipWrap" style="margin-top:10px;display:flex;gap:8px;align-items:center" hidden=""><input id="dVip" type="checkbox" style="width:auto"> <bdi data-i18n="games.privatnaya_vip_komnata"></bdi></label>
-            <button class="btn big" id="dCreate" style="margin-top:14px" data-i18n="games.sozdat_komnatu_2"></button>
-            <p class="hint" data-i18n="games.stavka_zamorazhivaetsya_do_poyavle"></p>
+            <label id="dVipWrap" class="check" hidden><input id="dVip" type="checkbox"> Приватная VIP-комната</label>
+            <button class="btn big" id="dCreate">Создать комнату</button>
+            <p class="hint">Ставка замораживается до появления соперника (10 минут, затем возврат). Победитель забирает банк за вычетом комиссии. Результат = SHA-256(сид комнаты : сид соперника : id), хэш сида виден заранее. Кнопка «Проверить» сверяет сид и результат.</p>
           </div>
-          <div><h2 data-i18n="games.otkrytye_komnaty"></h2><ul class="lb" id="dList"></ul></div>
+          <div><h2>Открытые комнаты</h2><ul class="lb" id="dList"></ul></div>
         </div>
-        <h2 style="margin-top:18px" data-i18n="games.poslednie_dueli"></h2>
+        <h2 class="gap">Последние дуэли</h2>
         <ul class="lb" id="dRecent"></ul>
       </div>
     </section>
 
-    <!-- Банк -->
-    <section class="view" id="v-bank">
-      <div class="grid2">
-        <div class="glass pad">
-          <h2 data-i18n="bank.kredit"></h2>
-          <div id="loanState"></div>
-          <div class="loans" id="loans"></div>
-          <div id="repayBox" hidden="">
-            <label for="ramt" data-i18n="bank.summa_pogasheniya"></label>
-            <div class="row"><input id="ramt" type="number" min="0.01" step="0.01" data-i18n-placeholder="bank.naprimer_5"><button class="btn ghost" id="repayPart" data-i18n="bank.pogasit"></button></div>
-            <div class="row"><button class="btn" id="repayAll" style="width:100%" data-i18n="bank.pogasit_vse_chto_vozmozhno"></button></div>
-          </div>
-          <ul class="rules" style="margin-top:16px" id="rules"></ul>
-        </div>
-        <div style="display:grid;gap:18px;align-content:start">
-          <div class="glass pad">
-            <h2 data-i18n="bank.ezhednevnyy_bonus"></h2>
-            <p class="muted" id="bonusTxt"></p>
-            <div class="row"><button class="btn" id="bonusBtn" data-i18n="bank.zabrat_bonus"></button></div>
-          </div>
-          <div class="glass pad">
-            <h2 data-i18n="bank.perevod_drugu"></h2>
-            <label for="xto" data-i18n="bank.nik_poluchatelya"></label>
-            <input id="xto" type="text" autocomplete="off" maxlength="16">
-            <label for="xamt" style="margin-top:10px" data-i18n="bank.summa"></label>
-            <input id="xamt" type="number" min="0.5" step="0.5" inputmode="decimal">
-            <div class="row"><button class="btn" id="xBtn" style="width:100%" data-i18n="bank.otpravit"></button></div>
-            <p class="hint" id="xInfo"></p>
-            <ul class="lb" id="xList" style="margin-top:12px"></ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Кейсы -->
+    <!-- ---------- Кейсы ---------- -->
     <section class="view" id="v-cases">
       <div class="ttabs" id="csub">
-        <button class="chip on" data-p="open" data-i18n="cases.keysy"></button>
-        <button class="chip" data-p="inv" data-i18n="cases.inventar"></button>
-        <button class="chip" data-p="market" data-i18n="cases.rynok"></button>
-        <button class="chip" data-p="craft" data-i18n="cases.kraft"></button>
+        <button class="chip on" data-p="open">📦 Кейсы</button>
+        <button class="chip" data-p="inv">🎒 Инвентарь</button>
+        <button class="chip" data-p="market">🛒 Рынок</button>
+        <button class="chip" data-p="craft">⚒️ Крафт</button>
       </div>
-      <div class="glass pad sub on" id="cs-open">
+      <div class="card pad sub on" id="cs-open">
         <div class="cases" id="caseList"></div>
-        <div id="caseStage" hidden="">
-          <h2 id="csTitle" style="margin-top:18px"></h2>
+        <div id="caseStage" hidden>
+          <h2 id="csTitle" class="gap"></h2>
           <div class="reelwrap"><div class="pointer"></div><div class="strip" id="strip"></div></div>
-          <div class="row" style="justify-content:center;flex-wrap:wrap"><button class="btn" id="caseBuy" data-i18n="cases.otkryt"></button><button class="btn ghost" id="caseTicket" hidden="" data-i18n="cases.po_biletu"></button></div>
+          <div class="row center"><button class="btn" id="caseBuy">Открыть</button><button class="btn ghost" id="caseTicket" hidden>По билету</button></div>
           <div class="result" id="caseRes"></div>
-          <details style="margin-top:14px"><summary class="muted" data-i18n="cases.shansy_vypadeniya"></summary><ul class="rules" id="caseRates"></ul></details>
+          <details class="gap"><summary class="muted">Шансы выпадения</summary><ul class="rules" id="caseRates"></ul></details>
         </div>
       </div>
-      <div class="glass pad sub" id="cs-inv"><div class="items" id="invList"></div><div id="invAct"></div></div>
-      <div class="glass pad sub" id="cs-market">
-        <p class="hint" style="margin:0 0 10px" id="mkNote"></p>
+      <div class="card pad sub" id="cs-inv"><div class="items" id="invList"></div><div id="invAct"></div></div>
+      <div class="card pad sub" id="cs-market">
+        <p class="hint tight" id="mkNote"></p>
         <ul class="lb" id="mList"></ul>
       </div>
-      <div class="glass pad sub" id="cs-craft">
+      <div class="card pad sub" id="cs-craft">
         <p class="muted" id="crInfo"></p>
-        <div class="items slots" id="crSel" style="margin-top:10px"></div>
-        <div class="row" style="margin:12px 0"><button class="btn" id="crBtn" style="width:100%" disabled="" data-i18n="cases.obedinit"></button></div>
+        <div class="items slots" id="crSel"></div>
+        <div class="row"><button class="btn full" id="crBtn" disabled>Объединить</button></div>
         <div class="items" id="crInv"></div>
       </div>
     </section>
 
-    <!-- Бонусы -->
+    <!-- ---------- Бонусы ---------- -->
     <section class="view" id="v-bonus">
       <div class="ttabs" id="bsub">
-        <button class="chip on" data-p="wheel" data-i18n="bonus.koleso"></button>
-        <button class="chip" data-p="quests" data-i18n="bonus.kvesty"></button>
-        <button class="chip" data-p="ach" data-i18n="bonus.dostizheniya"></button>
-        <button class="chip" data-p="promo" data-i18n="bonus.promokod"></button>
+        <button class="chip on" data-p="wheel">🎡 Колесо</button>
+        <button class="chip" data-p="quests">📜 Квесты</button>
+        <button class="chip" data-p="ach">🏆 Достижения</button>
+        <button class="chip" data-p="promo">🔑 Промокод</button>
       </div>
-      <div class="glass pad sub on" id="bs-wheel" style="text-align:center">
+      <div class="card pad sub on center" id="bs-wheel">
         <div class="wheelbox"><div class="pin">▼</div><div class="wheel" id="wheel"></div></div>
-        <button class="btn big" id="spinBtn" style="max-width:340px;margin-top:18px" data-i18n="bonus.krutit_koleso"></button>
-        <p class="muted" id="spinTxt" style="margin-top:10px"></p>
+        <button class="btn big maxw" id="spinBtn">Крутить колесо</button>
+        <p class="muted" id="spinTxt"></p>
       </div>
-      <div class="glass pad sub" id="bs-quests"><ul class="lb qs" id="qList"></ul></div>
-      <div class="glass pad sub" id="bs-ach"><div class="achs" id="achList"></div></div>
-      <div class="glass pad sub" id="bs-promo">
-        <h2 data-i18n="bonus.sekretnyy_promokod"></h2>
-        <p class="muted" data-i18n="bonus.vvedite_kod_chtoby_mgnovenno"></p>
-        <div class="row"><input id="promoCode" type="text" autocomplete="off" autocapitalize="characters" data-i18n-placeholder="bonus.naprimer_welcome"><button class="btn" id="promoBtn" data-i18n="bonus.aktivirovat"></button></div>
+      <div class="card pad sub" id="bs-quests"><ul class="lb qs" id="qList"></ul></div>
+      <div class="card pad sub" id="bs-ach"><div class="achs" id="achList"></div></div>
+      <div class="card pad sub" id="bs-promo">
+        <h2>Секретный промокод</h2>
+        <p class="muted">Введите код, чтобы мгновенно получить награду. Каждый код можно активировать один раз на аккаунт.</p>
+        <div class="row"><input id="promoCode" type="text" placeholder="Например, WELCOME" autocomplete="off" autocapitalize="characters"><button class="btn" id="promoBtn">Активировать</button></div>
       </div>
     </section>
 
-    <!-- Топы -->
+    <!-- ---------- Банк ---------- -->
+    <section class="view" id="v-bank">
+      <div class="grid2">
+        <div class="card pad">
+          <h2>Кредит</h2>
+          <div id="loanState"></div>
+          <div class="loans" id="loans"></div>
+          <div id="repayBox" hidden>
+            <label for="ramt">Сумма погашения</label>
+            <div class="row"><input id="ramt" type="number" min="0.01" step="0.01" placeholder="например, 5"><button class="btn ghost" id="repayPart">Погасить</button></div>
+            <div class="row"><button class="btn full" id="repayAll">Погасить всё, что возможно</button></div>
+          </div>
+          <ul class="rules" id="rules"></ul>
+        </div>
+        <div class="stack">
+          <div class="card pad">
+            <h2>Ежедневный бонус</h2>
+            <p class="muted" id="bonusTxt"></p>
+            <div class="row"><button class="btn" id="bonusBtn">Забрать бонус</button></div>
+          </div>
+          <div class="card pad">
+            <h2>Перевод другу</h2>
+            <label for="xto">Ник получателя</label>
+            <input id="xto" type="text" autocomplete="off" maxlength="16">
+            <label for="xamt" class="gap-s">Сумма</label>
+            <input id="xamt" type="number" min="0.5" step="0.5" inputmode="decimal">
+            <div class="row"><button class="btn full" id="xBtn">Отправить</button></div>
+            <p class="hint" id="xInfo"></p>
+            <ul class="lb" id="xList"></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------- Люди: топы, игроки, чат ---------- -->
     <section class="view" id="v-top">
-      <div class="glass pad">
+      <div class="card pad">
         <div class="seg ttabs" data-a="top"></div>
-        <p class="muted" id="poolInfo" style="margin-bottom:10px"></p>
+        <p class="muted" id="poolInfo"></p>
         <div class="ttabs" id="ttabs"></div>
         <ul class="lb" id="lb"></ul>
       </div>
     </section>
-
-    <!-- Чат -->
+    <section class="view" id="v-players">
+      <div class="card pad">
+        <div class="seg ttabs" data-a="players"></div>
+        <div class="pcount" id="pcount">Загрузка…</div>
+        <input id="psearch" type="text" placeholder="Поиск по нику" autocomplete="off">
+        <div class="ttabs gap-s" id="psort">
+          <button class="chip on" data-s="seen">Недавние</button>
+          <button class="chip" data-s="new">Новые</button>
+          <button class="chip" data-s="bal">По балансу</button>
+        </div>
+        <ul class="lb" id="plist"></ul>
+      </div>
+    </section>
     <section class="view" id="v-chat">
-      <div class="glass pad">
+      <div class="card pad">
         <div class="seg ttabs" data-a="chat"></div>
         <div class="chatbox" id="chatBox"></div>
-        <div class="row" style="margin-top:0"><input id="chatIn" type="text" maxlength="200" autocomplete="off" data-i18n-placeholder="chat.soobschenie"><button class="btn" id="chatSend" style="flex:none" data-i18n="chat.otpravit"></button></div>
+        <div class="row"><input id="chatIn" type="text" maxlength="200" placeholder="Сообщение…" autocomplete="off"><button class="btn" id="chatSend">Отправить</button></div>
       </div>
     </section>
 
-    <!-- Админ-панель -->
+    <!-- ---------- Кабинет и профиль ---------- -->
+    <section class="view" id="v-profile">
+      <div class="card pad" id="profBox"></div>
+    </section>
+
+    <!-- ---------- Админ-панель ---------- -->
     <section class="view" id="v-admin">
-      <div class="glass pad">
-        <h2 style="margin-bottom:10px" data-i18n="admin.admin_panel"></h2>
-        <div class="ttabs" id="admTabs"><button class="chip on" data-p="users" data-i18n="admin.igroki"></button><button class="chip" data-p="pays" data-i18n="admin.platezhi"></button></div>
+      <div class="card pad">
+        <h2>🛡️ Админ-панель</h2>
+        <div class="ttabs" id="admTabs"><button class="chip on" data-p="users">Игроки</button><button class="chip" data-p="pays">Платежи</button></div>
         <div class="sub on" id="ad-users">
-          <div class="row" style="margin-top:0"><input id="admQ" type="text" autocomplete="off" data-i18n-placeholder="admin.id_nik_ili_email"><button class="btn" id="admGo" style="flex:none" data-i18n="admin.nayti"></button></div>
-          <ul class="lb" id="admList" style="margin-top:12px"></ul>
+          <div class="row"><input id="admQ" type="text" placeholder="ID, ник или email" autocomplete="off"><button class="btn" id="admGo">Найти</button></div>
+          <ul class="lb" id="admList"></ul>
           <div id="admCard"></div>
         </div>
         <div class="sub" id="ad-pays"><ul class="lb" id="admPays"></ul></div>
       </div>
     </section>
 
-    <!-- Игроки -->
-    <section class="view" id="v-players">
-      <div class="glass pad">
-        <div class="seg ttabs" data-a="players"></div>
-        <div class="pcount" id="pcount" data-i18n="players.zagruzka"></div>
-        <input id="psearch" type="text" autocomplete="off" data-i18n-placeholder="players.poisk_po_niku">
-        <div class="ttabs" id="psort" style="margin-top:12px">
-          <button class="chip on" data-s="seen" data-i18n="players.nedavnie"></button>
-          <button class="chip" data-s="new" data-i18n="players.novye"></button>
-          <button class="chip" data-s="bal" data-i18n="players.po_balansu"></button>
-        </div>
-        <ul class="lb" id="plist"></ul>
+    <!-- ---------- Хэллоуинский ивент ---------- -->
+    <section class="view" id="v-event">
+      <div class="card pad" id="evBoss"></div>
+      <div class="card pad" id="evShop"></div>
+      <div class="card pad" id="evStage" hidden>
+        <h2 id="evTitle"></h2>
+        <div class="reelwrap"><div class="pointer"></div><div class="strip" id="evStrip"></div></div>
+        <div class="result" id="evRes"></div>
+        <details class="gap"><summary class="muted">Шансы выпадения</summary><ul class="rules" id="evRates"></ul></details>
       </div>
-    </section>
-
-    <!-- Профиль -->
-    <section class="view" id="v-profile">
-      <div class="glass pad" id="profBox"></div>
+      <div class="card pad" id="evTop"></div>
     </section>
   </main>
 </div>
+
 <div id="toasts"></div>
 
-
-
-<!-- Порядок подключения скриптов важен: каждый файл использует то, что объявлено выше. -->
-<!-- Настройка и тексты -->
-<script src="js/config.js"></script>
-<script src="js/i18n/ru.js"></script>
-<script src="js/i18n/apply.js"></script>
-<!-- Ядро -->
-<script src="js/core/constants.js"></script>
-<script src="js/core/utils.js"></script>
-<script src="js/core/state.js"></script>
-<script src="js/core/api.js"></script>
-<script src="js/core/app.js"></script>
-<!-- Разделы (features) -->
-<script src="js/features/auth.js"></script>
-<script src="js/features/games.js"></script>
-<script src="js/features/duels.js"></script>
-<script src="js/features/items.js"></script>
-<script src="js/features/cases.js"></script>
-<script src="js/features/inventory.js"></script>
-<script src="js/features/market.js"></script>
-<script src="js/features/craft.js"></script>
-<script src="js/features/bonus.js"></script>
-<script src="js/features/bank.js"></script>
-<script src="js/features/transfers.js"></script>
-<script src="js/features/players.js"></script>
-<script src="js/features/tops.js"></script>
-<script src="js/features/profile.js"></script>
-<script src="js/features/chat.js"></script>
-<script src="js/features/admin.js"></script>
-<!-- Запуск -->
-<script src="js/pwa.js"></script>
-<script src="js/main.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
