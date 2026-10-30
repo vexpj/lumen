@@ -11,7 +11,7 @@
 
 /* ===================== 1. НАСТРОЙКА ===================== */
 // Вставьте адрес веб-приложения Google Apps Script (оканчивается на /exec).
-const API_URL = 'PASTE_YOUR_WEB_APP_URL_HERE';
+const API_URL = 'https://script.google.com/macros/s/AKfycbyjNUOZedL_RBnCF802cCQsskn4A4L2O8j25vctxuif6c3R44H1k-tS3MWTJVbi--hh/exec';
 
 /* ===================== 2. УТИЛИТЫ ===================== */
 const SYM = ['🍒', '🍋', '🔔', '💎', '7️⃣'];                 // символы слотов (порядок как на сервере)
